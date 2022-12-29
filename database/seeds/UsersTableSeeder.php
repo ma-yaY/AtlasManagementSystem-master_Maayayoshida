@@ -13,5 +13,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
+         $this->call([
+            SubjectsTableTableSeeder::class, // 呼び出すように追加
+        ]);
+
     }
 }
