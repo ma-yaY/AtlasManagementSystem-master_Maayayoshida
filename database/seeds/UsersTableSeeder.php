@@ -13,9 +13,18 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
 
-         $this->call([
-            SubjectsTableTableSeeder::class, // 呼び出すように追加
-        ]);
+        DB::table('users')->insert([
+            'over_name' => 'kanri',
+            'under_name' => 'suruyo',
+            'over_name_kana' => 'かんり',
+            'under_name_kana' => 'するよ',
+            'mail_address' => 'kanrisuruyo@gmail.com',
+            'sex' => '2',
+            'birth_day' => '1995'.'01'.'01',
+            'role' => 1,
+            'password' => bcrypt('password'),
+             ]);
+             // 呼び出すように追加
 
     }
 }
