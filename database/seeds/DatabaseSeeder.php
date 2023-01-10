@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call([
-            SubjectsTableTableSeeder::class, // 呼び出すように追加
+            SubjectsTableSeeder::class, // 呼び出すように追加
         ]);
 
     }
