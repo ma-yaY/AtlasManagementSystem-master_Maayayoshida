@@ -13,9 +13,20 @@ class SubjectsTableSeeder extends Seeder
     public function run()
     {
         DB::table('Subjects')->insert([
+
+            ['id' => '1',
             'subject' => '国語',
+            'created_at' => date('Y-m-d H:i:s')],
+
+            ['id' => '2',
             'subject' => '数学',
-            'subject' => '英語'
+            'created_at' => date('Y-m-d H:i:s')],
+
+            ['id' => '3',
+            'subject' => '英語',
+            'created_at' => date('Y-m-d H:i:s')]
+
+
         ]);
         // 国語、数学、英語を追加
     }
