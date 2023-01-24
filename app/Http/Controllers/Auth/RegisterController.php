@@ -57,6 +57,24 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
+            protected function validator(array $data)
+    {
+        return Validator::make($data, [
+
+            'over_name' => 'required|string|min:2|max:12',
+            'under_name' => 'required|string|min:2|max:12',
+            'over_name_kana' => 'required|string|min:2|max:12',
+            'under_name_kana' => 'required|string|min:2|max:12',
+            'mail_address' => 'required|string|min:5|max:40|unique:users,email',
+            'sex' => 'required',
+            'birth_day' => 'required',
+            'password' => 'required|string|min:8|max:20|confirmed',
+            'password_confirmation' => 'required|string|min:8|max:20',
+        ]);
+
+
+    }
+
     public function registerPost(Request $request)
     {
         DB::beginTransaction();
