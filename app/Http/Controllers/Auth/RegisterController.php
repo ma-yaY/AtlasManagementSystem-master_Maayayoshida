@@ -45,19 +45,20 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+
     /**
-     * Create a new user instance after a valid registration.
+     * Get a validator for an incoming registration request.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function registerView()
+
+     public function getRegister()
     {
-        $subjects = Subjects::all();
-        return view('auth.register.register', compact('subjects'));
+        return view('auth.register');
     }
 
-            protected function validator(array $data)
+        protected function validator(array $data)
     {
         return Validator::make($data, [
 
@@ -72,8 +73,20 @@ class RegisterController extends Controller
             'password_confirmation' => 'required|string|min:8|max:20',
         ]);
 
-
     }
+
+    /**
+     * Create a new user instance after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    public function registerView()
+    {
+        $subjects = Subjects::all();
+        return view('auth.register.register', compact('subjects'));
+    }
+
 
     public function registerPost(Request $request)
     {
@@ -86,6 +99,8 @@ class RegisterController extends Controller
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
 
+
+
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
@@ -97,6 +112,7 @@ class RegisterController extends Controller
                 'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
+
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
             DB::commit();
@@ -105,5 +121,6 @@ class RegisterController extends Controller
             DB::rollback();
             return redirect()->route('loginView');
         }
+
     }
 }

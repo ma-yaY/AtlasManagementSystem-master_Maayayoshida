@@ -14,6 +14,9 @@
 </head>
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
+    @foreach ($errors->all() as $error)
+      <li class="validate">{{$error}}</li>
+    @endforeach
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
@@ -177,7 +180,8 @@
           </div>
         </div>
         <div class="mt-5 text-right">
-          <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
+          <button type="submit" class="btn btn-primary register_btn" onclick="return confirm('登録してよろしいですか？')">新規登録</button>
+          <!--<input type="submit" class="btn btn-primary register_btn" value="新規登録" onclick="return confirm('登録してよろしいですか？')">-->
         </div>
         <div class="text-center">
           <a href="{{ route('loginView') }}">ログイン</a>

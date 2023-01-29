@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes([
+    'register' => false
+]);
 
 Route::group(['middleware' => ['guest']], function(){
     Route::namespace('Auth')->group(function(){
