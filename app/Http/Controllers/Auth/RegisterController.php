@@ -9,7 +9,10 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Http\Requests\UserFormRequest;
 use DB;
+
+
 
 use App\Models\Users\Subjects;
 
@@ -58,22 +61,6 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-        protected function validator(array $data)
-    {
-        return Validator::make($data, [
-
-            'over_name' => 'required|string|min:2|max:12',
-            'under_name' => 'required|string|min:2|max:12',
-            'over_name_kana' => 'required|string|min:2|max:12',
-            'under_name_kana' => 'required|string|min:2|max:12',
-            'mail_address' => 'required|string|min:5|max:40|unique:users,email',
-            'sex' => 'required',
-            'birth_day' => 'required',
-            'password' => 'required|string|min:8|max:20|confirmed',
-            'password_confirmation' => 'required|string|min:8|max:20',
-        ]);
-
-    }
 
     /**
      * Create a new user instance after a valid registration.
@@ -88,7 +75,7 @@ class RegisterController extends Controller
     }
 
 
-    public function registerPost(Request $request)
+    public function registerPost(UserFormRequest $request)
     {
         DB::beginTransaction();
         try{
@@ -121,6 +108,5 @@ class RegisterController extends Controller
             DB::rollback();
             return redirect()->route('loginView');
         }
-
     }
 }

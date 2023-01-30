@@ -14,14 +14,14 @@
 </head>
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
-    @foreach ($errors->all() as $error)
-      <li class="validate">{{$error}}</li>
-    @endforeach
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+            @if($errors->first('over_name'))
+             <span class="error_message">{{ $errors->first('over_name') }}</span>
+            @endif
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
@@ -35,6 +35,12 @@
             </div>
           </div>
           <div class="d-flex mt-3" style="justify-content:space-between">
+            @if($errors->first('over_name_kana'))
+             <span class="error_message">{{ $errors->first('over_name_kana') }}</span>
+            @endif
+            @if($errors->first('under_name_kana'))
+             <span class="error_message">{{ $errors->first('under_name_kana') }}</span>
+            @endif
             <div class="" style="width:140px">
               <label class="d-block m-0" style="font-size:13px">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -49,6 +55,9 @@
             </div>
           </div>
           <div class="mt-3">
+            @if($errors->first('mail_address'))
+             <span class="error_message">{{ $errors->first('mail_address') }}</span>
+            @endif
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
@@ -64,6 +73,13 @@
           <label style="font-size:13px">その他</label>
         </div>
         <div class="mt-3">
+          @if($errors->first('old_year'))
+            <span class="error_message">{{ $errors->first('old_year') }}</span>
+          @endif
+
+          @if($errors->first('old_month'))
+             <span class="error_message">{{ $errors->first('old_month') }}</span>
+          @endif
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
@@ -148,6 +164,9 @@
           <label style="font-size:13px">日</label>
         </div>
         <div class="mt-3">
+          @if($errors->first('subject[]'))
+            <span class="error_message">{{ $errors->first('subject[]') }}</span>
+          @endif
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
           <label style="font-size:13px">教師(国語)</label>
@@ -168,6 +187,9 @@
           @endforeach
         </div>
         <div class="mt-3">
+          @if($errors->first('password'))
+            <span class="error_message">{{ $errors->first('password') }}</span>
+          @endif
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
@@ -180,8 +202,7 @@
           </div>
         </div>
         <div class="mt-5 text-right">
-          <button type="submit" class="btn btn-primary register_btn" onclick="return confirm('登録してよろしいですか？')">新規登録</button>
-          <!--<input type="submit" class="btn btn-primary register_btn" value="新規登録" onclick="return confirm('登録してよろしいですか？')">-->
+          <input type="submit" class="btn btn-primary register_btn" disabled value="新規登録" onclick="return confirm('登録してよろしいですか？')">
         </div>
         <div class="text-center">
           <a href="{{ route('loginView') }}">ログイン</a>

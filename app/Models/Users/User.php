@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Users\Subjects;
 
 use App\Models\Posts\Like;
 use Auth;
@@ -69,9 +70,9 @@ class User extends Authenticatable
     public function likes(){
         return $this->belongsToMany('App\Models\Posts\Like', 'likes', 'like_user_id', 'like_post_id')->withPivot('id');
     }
-
+    //教科とのリレーション
     public function subjects(){
-        return ;// リレーションの定義
+        return $this->hasMany('App\Models\Users\Subjects');// リレーションの定義
     }
 
     // いいねしているかどうか
