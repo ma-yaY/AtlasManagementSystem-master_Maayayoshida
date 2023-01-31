@@ -28,13 +28,13 @@ class UserFormRequest extends FormRequest
             'under_name' => 'required|string|min:2|max:12',
             'over_name_kana' => 'required|string|min:2|max:12',
             'under_name_kana' => 'required|string|min:2|max:12',
-            'mail_address' => 'required|string|min:5|max:40|unique:users,email',
+            'mail_address' => 'required|string|min:5|max:40|unique:users|email',
             'sex' => 'required',
             'old_year' => 'required',
             'old_month' => 'required',
             'role' => 'required',
             'password' => 'required|string|min:8|max:20|confirmed',
-            'password_confirmation' => 'required|string|min:8|max:30'
+            'password_confirmation' => 'required|string|min:8|max:30',
         ];
     }
 
