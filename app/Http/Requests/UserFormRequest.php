@@ -28,7 +28,7 @@ class UserFormRequest extends FormRequest
             'under_name' => 'required|string|max:12',
             'over_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
             'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
-            'mail_address' => 'required|string|min:5|max:100|email|unique:users,mail_address',
+            'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => 'required',
             'old_year' => 'required',
             'old_month' => 'required',
