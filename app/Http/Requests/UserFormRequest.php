@@ -28,12 +28,12 @@ class UserFormRequest extends FormRequest
             'under_name' => 'required|string|min:2|max:12',
             'over_name_kana' => 'required|string|min:2|max:12',
             'under_name_kana' => 'required|string|min:2|max:12',
-            'mail_address' => 'required|string|min:5|max:40|unique:users,email',
+            'mail_address' => 'required|string|min:5|max:40|unique:users,mail_address',
             'sex' => 'required',
             'old_year' => 'required',
             'old_month' => 'required',
             'role' => 'required',
-            'password' => 'required|string|min:8|max:20|confirmed',
+            'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
         ];
     }
@@ -57,12 +57,15 @@ class UserFormRequest extends FormRequest
             'under_name_kana.max' => '苗字は10文字以内で入力してください。',
 
             'mail_address.required' => 'メールアドレスは必須項目です。',
+            'mail_address.string' => 'メールアドレスの形式が違います。',
             'sex.required' => '性別は必須項目です。',
             'old_year.required' => '年齢は必須項目です。',
-            //'old_year' => '2000年1月1日から今日まで',
-            //'old_month' => '2000年1月1日から今日まで',
             'role.required' => 'チェック必須項目です。',
             'password.required' => 'パスワードは必須項目です。',
+            'password.string' => 'パスワードは文字列で入力してください。',
+            'password.max' => 'パスワードは30文字以内で入力してください。',
+            'password.confirmed' => '確認用パスワードが違います。',
+            'password_confirmation.' => 'パスワードは30文字以内で入力してください。',
         ];
     }
 }
