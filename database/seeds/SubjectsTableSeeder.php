@@ -25,6 +25,7 @@ class SubjectsTableSeeder extends Seeder
             ['id' => '3',
             'subject' => '英語',
             'created_at' => date('Y-m-d H:i:s')]
+
         ]);
         // 国語、数学、英語を追加
     }
