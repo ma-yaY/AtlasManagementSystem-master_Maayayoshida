@@ -18,7 +18,7 @@ Route::group(['middleware' => ['guest']], function(){
     Route::namespace('Auth')->group(function(){
         Route::get('/register', 'RegisterController@registerView')->name('registerView');
         Route::post('/register/post', 'RegisterController@registerPost')->name('registerPost');
-        Route::get('/login', 'LoginController@loginView')->name('loginView');
+        Route::get('/login', 'LoginController@loginView')->name('login');
         Route::post('/login/post', 'LoginController@loginPost')->name('loginPost');
     });
 });
@@ -29,6 +29,8 @@ Route::group(['middleware' => 'auth'], function(){
             Route::get('/logout', 'TopsController@logout');
             Route::get('/top', 'TopsController@show')->name('top.show');
         });
+
+
         Route::namespace('Calendar')->group(function(){
             Route::namespace('General')->group(function(){
                 Route::get('/calendar/{user_id}', 'CalendarsController@show')->name('calendar.general.show');

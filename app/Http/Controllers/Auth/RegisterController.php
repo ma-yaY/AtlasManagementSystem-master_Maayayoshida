@@ -86,8 +86,6 @@ class RegisterController extends Controller
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
 
-
-
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
@@ -102,7 +100,6 @@ class RegisterController extends Controller
 
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
-            $user->subjects()->attach
             DB::commit();
             return view('auth.login.login');
         }catch(\Exception $e){

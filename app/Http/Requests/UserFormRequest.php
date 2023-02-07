@@ -33,6 +33,7 @@ class UserFormRequest extends FormRequest
             'old_year' => 'required',
             'old_month' => 'required',
             'role' => 'required',
+            'subject[]' =>'subject[]',
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
         ];
@@ -48,27 +49,28 @@ class UserFormRequest extends FormRequest
             'under_name.string' => '姓は文字列で入力してください。',
             'under_name.max' => '姓は10文字以下で入力してください。',
 
-            'over_name_kana.required' => 'メイは必須項目です。',
-            'over_name_kana.string' => 'メイは文字列で入力してください。',
-            'over_name_kana.max' => 'メイは10文字以下で入力してください。',
-            'over_name_kana.regex' => 'メイはカタカナで入力してください。',
+            'over_name_kana.required' => 'セイは必須項目です。',
+            'over_name_kana.string' => 'セイは文字列で入力してください。',
+            'over_name_kana.max' => 'セイは10文字以下で入力してください。',
+            'over_name_kana.regex' => 'セイはカタカナで入力してください。',
 
 
-            'under_name_kana.required' => 'セイは必須項目です。',
-            'under_name_kana.string' => 'セイカタカナは文字列で入力してください。',
-            'under_name_kana.max' => 'セイは10文字以内で入力してください。',
-            'under_name_kana.regex' => 'セイはカタカナで入力してください。',
+            'under_name_kana.required' => 'メイは必須項目です。',
+            'under_name_kana.string' => 'メイは文字列で入力してください。',
+            'under_name_kana.max' => 'メイは10文字以内で入力してください。',
+            'under_name_kana.regex' => 'メイはカタカナで入力してください。',
 
             'mail_address.required' => 'メールアドレスは必須項目です。',
             'mail_address.email' => 'メールアドレスの形式が違います。',
             'mail_address.unique' => '登録済みのメールアドレスです。',
-            'under_name_kana.max' => 'セイは100文字以下で入力してください。',
 
             'sex.required' => '性別は必須項目です。',
 
             'old_year.required' => '年齢は必須項目です。',
 
             'role.required' => 'チェック必須項目です。',
+
+            'subject[]' => '教科は必須項目です。',
 
             'password.required' => 'パスワードは必須項目です。',
             'password.string' => 'パスワードは文字列で入力してください。',

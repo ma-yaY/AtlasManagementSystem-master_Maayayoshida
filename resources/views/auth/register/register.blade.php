@@ -165,6 +165,9 @@
         </div>
         <div class="mt-3">
           @if($errors->first('subject[]'))
+            <span class="error_message">{{ $errors->first('role') }}</span>
+          @endif
+          @if($errors->first('subject[]'))
             <span class="error_message">{{ $errors->first('subject[]') }}</span>
           @endif
           <label class="d-block m-0" style="font-size:13px">役職</label>
