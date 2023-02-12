@@ -41,11 +41,12 @@
         <span>権限 : </span><span>生徒</span>
         @endif
       </div>
-      <div>
-        @if($user->role == 4)
-        <span>選択科目 :</span><span>{{ $user->$subjects }}</span>
-        @endif
-      </div>
+      @if($user->role == 4)
+        <div>
+
+            <span>選択科目 :</span><span>{{ $subjects['subject'] }}</span>
+        </div>
+      @endif
     </div>
     @endforeach
   </div>

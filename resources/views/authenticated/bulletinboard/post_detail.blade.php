@@ -12,7 +12,6 @@
             <a href="{{ route('post.delete', ['id' => $post->id]) }}">削除</a>
           </div>
         </div>
-
         <div class="contributor d-flex">
           <p>
             <span>{{ $post->user->over_name }}</span>

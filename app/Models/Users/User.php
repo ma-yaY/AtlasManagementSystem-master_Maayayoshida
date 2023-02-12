@@ -72,7 +72,7 @@ class User extends Authenticatable
     }
     //教科とのリレーション
     public function subjects(){
-        return $this->belongsToMany('App\Models\Users\Subjects','subject');// リレーションの定義
+        return $this->belongsToMany(User::class);// リレーションの定義
     }
 
     // いいねしているかどうか
