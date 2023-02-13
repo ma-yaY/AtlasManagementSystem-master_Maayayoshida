@@ -16,6 +16,30 @@ class UserFormRequest extends FormRequest
         return true;
     }
 
+
+    /**
+     *  rules()の前に実行される
+     *       $this->merge(['key' => $value])を実行すると、
+     *       フォームで送信された(key, value)の他に任意の(key, value)の組み合わせをrules()に渡せる
+     */
+    public function getValidatorInstance()
+    {
+        // プルダウンで選択された値(= 配列)を取得
+        $date = $this->input('date', array()); //デフォルト値は空の配列
+
+        // 日付を作成(ex. 2020-1-20)
+        $datetime_validation = implode('-', $date);
+
+        // rules()に渡す値を追加でセット
+        //     これで、この場で作った変数にもバリデーションを設定できるようになる
+        $this->merge([
+            'date_validation' => $date_validation,
+        ]);
+
+        return parent::getValidatorInstance();
+    }
+
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,6 +54,7 @@ class UserFormRequest extends FormRequest
             'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => 'required',
+            'date_validation' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'old_year' => 'required',
             'old_month' => 'required',
             'role' => 'required',
@@ -65,6 +90,8 @@ class UserFormRequest extends FormRequest
             'mail_address.unique' => '登録済みのメールアドレスです。',
 
             'sex.required' => '性別は必須項目です。',
+
+            'date_validation.date'  => "年齢は必須項目です",
 
             'old_year.required' => '年齢は必須項目です。',
 
