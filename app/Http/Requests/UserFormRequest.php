@@ -25,7 +25,8 @@ class UserFormRequest extends FormRequest
     public function getValidatorInstance()
     {
         // プルダウンで選択された値(= 配列)を取得
-        $date = $this->input('data', array()); //デフォルト値は空の配列
+
+        $date = $this->input($old_year, $old_month, $old_day, 'Y-m-d'); //デフォルト値は空の配列
 
         // 日付を作成(ex. 2020-1-20)
         $date_validation = implode('-', $date);
