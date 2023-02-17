@@ -98,6 +98,11 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
+            $user_subjects = Subjects::create([
+                'subject' => $request->subject,
+                ]);
+
+
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
             DB::commit();

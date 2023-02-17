@@ -164,11 +164,11 @@
           <label style="font-size:13px">日</label>
         </div>
         <div class="mt-3">
-          @if($errors->first('subject[]'))
+          @if($errors->first('role'))
             <span class="error_message">{{ $errors->first('role') }}</span>
           @endif
-          @if($errors->first('subject[]'))
-            <span class="error_message">{{ $errors->first('subject[]') }}</span>
+          @if($errors->first('subject'))
+            <span class="error_message">{{ $errors->first('subject') }}</span>
           @endif
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
@@ -184,7 +184,7 @@
           <label class="d-block m-0" style="font-size:13px">選択科目</label>
           @foreach($subjects as $subject)
           <div class="">
-            <input type="checkbox" name="subject[]" value="{{ $subject->id }}">
+            <input type="checkbox" name="subject" value="{{ $subject->id }}"><!--subject[]-->
             <label>{{ $subject->subject }}</label>
           </div>
           @endforeach
