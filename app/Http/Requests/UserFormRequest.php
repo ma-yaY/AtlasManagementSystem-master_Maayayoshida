@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 
 class UserFormRequest extends FormRequest
 {
@@ -22,20 +23,19 @@ class UserFormRequest extends FormRequest
      *       $this->merge(['key' => $value])を実行すると、
      *       フォームで送信された(key, value)の他に任意の(key, value)の組み合わせをrules()に渡せる
      */
-    public function getValidatorInstance()
+    public function getValidatorInstance(Request $request)
     {
-        // プルダウンで選択された値(= 配列)を取得
 
-        $date = $this->input($old_year, $old_month, $old_day, 'Y-m-d'); //デフォルト値は空の配列
+        $old_year = $request->select('old_year');
+            $old_month = $request->select('old_month');
+            $old_day = $request->select('old_day');
 
-        // 日付を作成(ex. 2020-1-20)
-        $date_validation = implode('-', $date);
-
+            $birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
+            $this->merge([
+                'birth' => $birthDate,
+            ]);
         // rules()に渡す値を追加でセット
         //     これで、この場で作った変数にもバリデーションを設定できるようになる
-        $this->merge([
-            'date_validation' => $date_validation,
-        ]);
 
         return parent::getValidatorInstance();
     }
@@ -55,7 +55,7 @@ class UserFormRequest extends FormRequest
             'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => 'required',
-            'date_validation' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
+            'birth' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'role' => 'required',
             'subject[]' =>'subject[]',
             'password' => 'required|string|min:8|max:30|confirmed',
@@ -90,7 +90,7 @@ class UserFormRequest extends FormRequest
 
             'sex.required' => '性別は必須項目です。',
 
-            'date_validation.date'  => "存在しない日付です。",
+            'birth.date'  => "存在しない日付です。",
 
             'role.required' => 'チェック必須項目です。',
 
