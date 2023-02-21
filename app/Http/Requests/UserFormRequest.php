@@ -25,13 +25,15 @@ class UserFormRequest extends FormRequest
             $old_year = $this->input('old_year');
             $old_month = $this->input('old_month');
             $old_day = $this->input('old_day');
+            //select()だとうまくいかなかった。ここでは＄requestは使わず＄this
 
             //変数結合
             //$birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
+
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $this->merge([
-                'birth' => $birth_day,
+                'birth_day' => $birth_day,
             ]);
 
 
@@ -53,7 +55,7 @@ class UserFormRequest extends FormRequest
             'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => 'required',
-            'birth_day' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
+            'birth_day' => 'required|date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'role' => 'required',
             'subject[]' =>'subject[]',
             'password' => 'required|string|min:8|max:30|confirmed',
@@ -88,7 +90,8 @@ class UserFormRequest extends FormRequest
 
             'sex.required' => '性別は必須項目です。',
 
-            'birth_day.date'  => "存在しない日付です。",
+            'birth_day.required'  => '日付は必須項目です。',
+            'birth_day.date'  => 'この日付は存在しません。',
 
             'role.required' => 'チェック必須項目です。',
 
