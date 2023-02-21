@@ -14,6 +14,8 @@
 </head>
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
+    <!-- CSRF対策-->
+    @csrf
     <div class="w-100 vh-100 d-flex" style="align-its:center; justify-content:center;">
       <div class="w-25 vh-75 border p-3">
         <div class="register_form">
@@ -76,10 +78,13 @@
           @if($errors->first('old_year'))
             <span class="error_message">{{ $errors->first('old_year') }}</span>
           @endif
-
           @if($errors->first('old_month'))
              <span class="error_message">{{ $errors->first('old_month') }}</span>
           @endif
+          @if($errors->first('old_day'))
+             <span class="error_message">{{ $errors->first('old_day') }}</span>
+          @endif
+
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>

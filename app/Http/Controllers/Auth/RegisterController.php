@@ -74,11 +74,9 @@ class RegisterController extends Controller
         return view('auth.register.register', compact('subjects'));
     }
 
-
-
     public function registerPost(UserFormRequest $request)
     {
-        //ddd($request);
+        //dd($request);
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
@@ -87,7 +85,6 @@ class RegisterController extends Controller
             $data = $old_year . '-' . $old_month . '-' . $old_day;
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
-
             //strtotime()は英文形式で指定した日付、例えば 'now' 'yesterday' 'last month'等を UNIXタイムスタンプに変換し取得できる（有効なものに書き換える）
 
             $user_get = User::create([
@@ -101,7 +98,6 @@ class RegisterController extends Controller
                 'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
-
 
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
