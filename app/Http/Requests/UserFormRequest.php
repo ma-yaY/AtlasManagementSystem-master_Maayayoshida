@@ -22,9 +22,9 @@ class UserFormRequest extends FormRequest
     public function getValidatorInstance()
     {
 
-            $old_year = $request->select('old_year');
-            $old_month = $request->select('old_month');
-            $old_day = $request->select('old_day');
+            $old_year = $this->input('old_year');
+            $old_month = $this->input('old_month');
+            $old_day = $this->input('old_day');
 
             //変数結合
             //$birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
@@ -35,7 +35,7 @@ class UserFormRequest extends FormRequest
             ]);
 
 
-        //return parent::getValidatorInstance();
+        return parent::getValidatorInstance();
     }
 
 

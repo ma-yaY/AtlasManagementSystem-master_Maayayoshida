@@ -78,7 +78,7 @@ class RegisterController extends Controller
 
     public function registerPost(UserFormRequest $request)
     {
-        dd($request);
+        //ddd($request);
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
