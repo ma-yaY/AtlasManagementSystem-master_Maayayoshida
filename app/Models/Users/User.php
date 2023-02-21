@@ -72,7 +72,7 @@ class User extends Authenticatable
     }
     //教科とのリレーション
     public function subjects(){
-        return $this->belongsToMany('App\Models\Users\Subjects', 'subjects_users', 'user_id', 'subject_id')->withPivot('id');;// リレーションの定義
+        return $this->belongsToMany('App\Models\Users\Subjects', 'subjects_users', 'user_id', 'subject_id')->withPivot('id');// リレーションの定義
     }
 
     // いいねしているかどうか

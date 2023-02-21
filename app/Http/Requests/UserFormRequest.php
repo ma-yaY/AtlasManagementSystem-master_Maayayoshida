@@ -18,26 +18,24 @@ class UserFormRequest extends FormRequest
     }
 
 
-/**
-     *  rules()の前に実行される
-     *       $this->merge(['key' => $value])を実行すると、
-     *       フォームで送信された(key, value)の他に任意の(key, value)の組み合わせをrules()に渡せる
-     */
-    public function getValidatorInstance(Request $request)
+
+    public function getValidatorInstance()
     {
 
-        $old_year = $request->select('old_year');
+            $old_year = $request->select('old_year');
             $old_month = $request->select('old_month');
             $old_day = $request->select('old_day');
 
-            $birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
+            //変数結合
+            //$birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
+            $data = $old_year . '-' . $old_month . '-' . $old_day;
+            $birth_day = date('Y-m-d', strtotime($data));
             $this->merge([
-                'birth' => $birthDate,
+                'birth' => $birth_day,
             ]);
-        // rules()に渡す値を追加でセット
-        //     これで、この場で作った変数にもバリデーションを設定できるようになる
 
-        return parent::getValidatorInstance();
+
+        //return parent::getValidatorInstance();
     }
 
 
@@ -55,7 +53,7 @@ class UserFormRequest extends FormRequest
             'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => 'required',
-            'birth' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
+            'birth_day' => 'date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'role' => 'required',
             'subject[]' =>'subject[]',
             'password' => 'required|string|min:8|max:30|confirmed',
@@ -90,7 +88,7 @@ class UserFormRequest extends FormRequest
 
             'sex.required' => '性別は必須項目です。',
 
-            'birth.date'  => "存在しない日付です。",
+            'birth_day.date'  => "存在しない日付です。",
 
             'role.required' => 'チェック必須項目です。',
 

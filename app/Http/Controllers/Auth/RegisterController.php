@@ -75,8 +75,10 @@ class RegisterController extends Controller
     }
 
 
+
     public function registerPost(UserFormRequest $request)
     {
+        dd($request);
         DB::beginTransaction();
         try{
             $old_year = $request->old_year;
@@ -97,10 +99,6 @@ class RegisterController extends Controller
                 'role' => $request->role,
                 'password' => bcrypt($request->password)
             ]);
-
-            $user_subjects = Subjects::create([
-                'subject' => $request->subject,
-                ]);
 
 
             $user = User::findOrFail($user_get->id);
