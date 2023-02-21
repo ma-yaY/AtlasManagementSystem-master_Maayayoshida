@@ -30,8 +30,7 @@ class UserFormRequest extends FormRequest
             //変数結合
             //$birthDate = implode('-', $this->only(['old_year', 'old_month', 'old_day']));
 
-            $data = $old_year . '-' . $old_month . '-' . $old_day;
-            $birth_day = date('Y-m-d', strtotime($data));
+            $birth_day = $old_year . '-' . $old_month . '-' . $old_day;
             $this->merge([
                 'birth_day' => $birth_day,
             ]);
@@ -57,7 +56,7 @@ class UserFormRequest extends FormRequest
             'sex' => 'required',
             'birth_day' => 'required|date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'role' => 'required',
-            'subject[]' =>'subject[]',
+            'subject[]' =>'required',
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
         ];
@@ -95,7 +94,7 @@ class UserFormRequest extends FormRequest
 
             'role.required' => 'チェック必須項目です。',
 
-            'subject[]' => '教科は必須項目です。',
+            'subject[].required' => '教科は必須項目です。',
 
             'password.required' => 'パスワードは必須項目です。',
             'password.string' => 'パスワードは文字列で入力してください。',

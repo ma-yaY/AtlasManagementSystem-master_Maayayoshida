@@ -88,6 +88,8 @@ class RegisterController extends Controller
             $birth_day = date('Y-m-d', strtotime($data));
             $subjects = $request->subject;
 
+            //strtotime()は英文形式で指定した日付、例えば 'now' 'yesterday' 'last month'等を UNIXタイムスタンプに変換し取得できる（有効なものに書き換える）
+
             $user_get = User::create([
                 'over_name' => $request->over_name,
                 'under_name' => $request->under_name,
