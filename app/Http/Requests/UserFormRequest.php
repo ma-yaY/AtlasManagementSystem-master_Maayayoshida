@@ -49,14 +49,13 @@ class UserFormRequest extends FormRequest
     {
         return [
             'over_name' => 'required|string|max:10',
-            'under_name' => 'required|string|max:12',
-            'over_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
-            'under_name_kana' => 'required|string|max:12|regex:/^[ァ-ヾ　〜ー]+$/u',
+            'under_name' => 'required|string|max:10',
+            'over_name_kana' => 'required|string|max:30|regex:/^[ァ-ヾ　〜ー]+$/u',
+            'under_name_kana' => 'required|string|max:30|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
-            'sex' => 'required',
+            'sex' => ['required', 'regex:/^[男|女|その他]+$/u'],
             'birth_day' => 'required|date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
             'role' => 'required',
-            'subject[]' =>'required',
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
         ];
@@ -74,13 +73,13 @@ class UserFormRequest extends FormRequest
 
             'over_name_kana.required' => 'セイは必須項目です。',
             'over_name_kana.string' => 'セイは文字列で入力してください。',
-            'over_name_kana.max' => 'セイは10文字以下で入力してください。',
+            'over_name_kana.max' => 'セイは30文字以下で入力してください。',
             'over_name_kana.regex' => 'セイはカタカナで入力してください。',
 
 
             'under_name_kana.required' => 'メイは必須項目です。',
             'under_name_kana.string' => 'メイは文字列で入力してください。',
-            'under_name_kana.max' => 'メイは10文字以内で入力してください。',
+            'under_name_kana.max' => 'メイは30文字以内で入力してください。',
             'under_name_kana.regex' => 'メイはカタカナで入力してください。',
 
             'mail_address.required' => 'メールアドレスは必須項目です。',
@@ -88,13 +87,13 @@ class UserFormRequest extends FormRequest
             'mail_address.unique' => '登録済みのメールアドレスです。',
 
             'sex.required' => '性別は必須項目です。',
+            'sex.regex' => '男性、女性、その他以外無効',
 
-            'birth_day.required'  => '日付は必須項目です。',
+            'birth_day.required' => '日付は必須項目です。',
             'birth_day.date'  => 'この日付は存在しません。',
 
             'role.required' => 'チェック必須項目です。',
 
-            'subject[].required' => '教科は必須項目です。',
 
             'password.required' => 'パスワードは必須項目です。',
             'password.string' => 'パスワードは文字列で入力してください。',

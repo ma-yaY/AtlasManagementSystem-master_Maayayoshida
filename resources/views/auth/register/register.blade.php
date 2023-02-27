@@ -56,13 +56,13 @@
             </div>
           </div>
           <div class="mt-3">
-            @if($errors->first('mail_address'))
-             <span class="error_message">{{ $errors->first('mail_address') }}</span>
-            @endif
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
               <input type="mail" class="w-100 border-0 mail_address" name="mail_address">
             </div>
+            @if($errors->first('mail_address'))
+             <span class="error_message">{{ $errors->first('mail_address') }}</span>
+            @endif
           </div>
         </div>
         <div class="mt-3">
@@ -74,9 +74,6 @@
           <label style="font-size:13px">その他</label>
         </div>
         <div class="mt-3">
-          @if($errors->first('birth_day'))
-            <span class="error_message">{{ $errors->first('birth_day') }}</span>
-          @endif
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
             <option value="none">-----</option>
@@ -159,6 +156,9 @@
             <option value="31">31</option>
           </select>
           <label style="font-size:13px">日</label>
+          @if($errors->first('birth_day'))
+            <span class="error_message">{{ $errors->first('birth_day') }}</span>
+          @endif
         </div>
         <div class="mt-3">
           @if($errors->first('role'))
