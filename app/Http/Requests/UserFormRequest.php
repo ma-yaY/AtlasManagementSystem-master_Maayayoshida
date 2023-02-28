@@ -54,7 +54,7 @@ class UserFormRequest extends FormRequest
             'under_name_kana' => 'required|string|max:30|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
             'sex' => ['required', 'regex:/^[1|2|3]+$/u'],
-            'birth_day' => 'required|date|after:2000-01-01|before:now',// 正しい日付かどうかをチェック
+            'birth_day' => 'required|date|after:1999-12-31|before:now',// 正しい日付かどうかをチェック
             'role' => 'required',
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
