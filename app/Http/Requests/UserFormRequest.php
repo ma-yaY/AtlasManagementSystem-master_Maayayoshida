@@ -53,13 +53,15 @@ class UserFormRequest extends FormRequest
             'over_name_kana' => 'required|string|max:30|regex:/^[ァ-ヾ　〜ー]+$/u',
             'under_name_kana' => 'required|string|max:30|regex:/^[ァ-ヾ　〜ー]+$/u',
             'mail_address' => 'required|string|max:100|email|unique:users,mail_address',
-            'sex' => ['required', 'regex:/^[男|女|その他]+$/u'],
-            'birth_day' => 'required|date',// 正しい日付かどうかをチェック(ex. 2020-2-30はNG)
+            'sex' => ['required', 'regex:/^[1|2|3]+$/u'],
+            'birth_day' => 'required|date|after:2000-01-01|before:now',// 正しい日付かどうかをチェック
             'role' => 'required',
             'password' => 'required|string|min:8|max:30|confirmed',
             'password_confirmation' => 'required|string|min:8|max:30',
         ];
     }
+
+
 
     public function messages(){
         return [
@@ -91,6 +93,8 @@ class UserFormRequest extends FormRequest
 
             'birth_day.required' => '日付は必須項目です。',
             'birth_day.date'  => 'この日付は存在しません。',
+            'birth_day.before' => '今日までの日付を入力。',
+            'birth_day.after' => '2000年1月1日以降の日付を入力。',
 
             'role.required' => 'チェック必須項目です。',
 
