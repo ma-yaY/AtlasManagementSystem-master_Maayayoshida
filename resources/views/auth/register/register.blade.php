@@ -157,9 +157,10 @@
           </select>
           <label style="font-size:13px">日</label>
         </div>
-        @if($errors->first('birth_day'))
-            <span class="error_message">{{ $errors->first('birth_day') }}</span>
+        @if($errors->has('birth_day'))
+          <span class="error_message">{{ $errors->first('birth_day') }}</span>
         @endif
+
         <div class="mt-3">
           @if($errors->first('role'))
             <span class="error_message">{{ $errors->first('role') }}</span>
