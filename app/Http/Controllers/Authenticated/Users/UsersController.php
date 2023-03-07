@@ -21,10 +21,10 @@ class UsersController extends Controller
         $gender = $request->sex;
         $role = $request->role;
         $userFactory = new SearchResultFactories();
-        $subjects = $request->subject;
+        $subjects = $request->input('subject');//検索用
 
-        $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
-        $subjects = Subjects::all();//
+        $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);//検索
+        $subjects = Subjects::all();//教科全てのデータ
 
         return view('authenticated.users.search', compact('users', 'subjects'));
     }
