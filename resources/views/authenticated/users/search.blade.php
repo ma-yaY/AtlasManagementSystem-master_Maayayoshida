@@ -4,7 +4,7 @@
 <p>ユーザー検索</p>
 <div class="search_content w-100 border d-flex">
   <div class="reserve_users_area">
-    @foreach($users as $user)
+    @foreach($users->subjects as $user)
     <div class="border one_person">
       <div>
         <span>ID : </span><span>{{ $user->id }}</span>
@@ -43,9 +43,10 @@
       </div>
       @if($user->role == 4)
         <div>
-
-            <span>選択科目 :</span><span>{{ $subjects['subject'] }}</span>
+          @foreach($user->Sub_Jects as $subject)
+            <span>選択科目 :</span><span>{{ $subject->subject }}</span>
         </div>
+        @endforeach
       @endif
     </div>
     @endforeach

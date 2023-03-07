@@ -73,6 +73,9 @@
           <input type="radio" name="sex" class="sex" value="3">
           <label style="font-size:13px">その他</label>
         </div>
+          @if($errors->first('sex'))
+             <span class="error_message">{{ $errors->first('sex') }}</span>
+          @endif
         <div class="mt-3">
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
