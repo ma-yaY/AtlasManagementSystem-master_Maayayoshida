@@ -14,16 +14,18 @@ use App\Searchs\SearchResultFactories;
 class UsersController extends Controller
 {
 
-    public function showUsers(Request $request){
+    public function showUsers(Request $request ){
         $keyword = $request->keyword;
         $category = $request->category;
         $updown = $request->updown;
         $gender = $request->sex;
         $role = $request->role;
         $userFactory = new SearchResultFactories();
+        $subjects = $request->subject;
+
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
-        $subjects = Subjects::all();
-        $Sub_Jects = User::with('subjects')->get();
+        $subjects = Subjects::all();//
+
         return view('authenticated.users.search', compact('users', 'subjects'));
     }
 
