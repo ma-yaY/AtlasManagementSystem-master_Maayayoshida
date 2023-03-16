@@ -23,19 +23,19 @@ class SelectIdDetails implements DisplayUsers{
       $role = array($role);
     }
     if(is_null($subjects)){
-      $subject = ['1', '2', '3'];
+      $role = ['1', '2', '3', '4'];
     }else{
       $subjects = array($subjects);
     }
+
     $users = User::with('subjects')
     ->whereIn('id', $keyword)
     ->where(function($q) use ($role, $gender){
       $q->whereIn('sex', $gender)
-      ->whereIn('role', $role)
-      ->whereIn('subjects', $subjects);
+      ->whereIn('role', $role);
     })
     ->whereHas('subjects', function($q) use ($subjects){
-      $q->where('subjects.id', $subjects);
+      $q->where('subject_id', '>=', ['1', '2', '3', '4']);
     })
     ->orderBy('id', $updown)->get();
     return $users;
