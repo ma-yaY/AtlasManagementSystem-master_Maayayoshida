@@ -14,14 +14,15 @@ use App\Searchs\SearchResultFactories;
 class UsersController extends Controller
 {
 
-    public function showUsers(Request $request ){
+    public function showUsers(Request $request){
         $keyword = $request->keyword;
         $category = $request->category;
         $updown = $request->updown;
         $gender = $request->sex;
         $role = $request->role;
+        $subjects = $request->subject;//検索用
         $userFactory = new SearchResultFactories();
-        $subjects = $request->input('subject');//検索用
+
 
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);//検索
         $subjects = Subjects::all();//教科全てのデータ
