@@ -22,11 +22,7 @@ class SelectIdDetails implements DisplayUsers{
     }else{
       $role = array($role);
     }
-    if(is_null($subjects)){
-      $role = ['1', '2', '3', '4'];
-    }else{
-      $subjects = array($subjects);
-    }
+
     $users = User::with('subjects')
     ->whereIn('id', $keyword)
     ->where(function($q) use ($role, $gender){
@@ -34,7 +30,7 @@ class SelectIdDetails implements DisplayUsers{
       ->whereIn('role', $role);
     })
     ->whereHas('subjects', function($q) use ($subjects){
-      $q->where('subject_id', '>=', $subjects);
+      $q->whereIn('subject_id', $subjects);
     })
     ->orderBy('id', $updown)->get();
     return $users;

@@ -18,7 +18,7 @@ class SearchResultFactories{
       if(is_null($subjects)){
         $searchResults = new SelectIds();
       }else{
-        $searchResults = new SelectNameDetails();
+        $searchResults = new SelectIdDetails();
       }
       return $searchResults->resultUsers($keyword, $category, $updown, $gender, $role, $subjects);
     }else {
