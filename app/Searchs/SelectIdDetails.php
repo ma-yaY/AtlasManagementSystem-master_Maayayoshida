@@ -31,6 +31,7 @@ class SelectIdDetails implements DisplayUsers{
     })
     ->whereHas('subjects', function($q) use ($subjects){
       $q->whereIn('subject_id', $subjects);
+      //複数配列形式にしたい。whereIn
     })
     ->orderBy('id', $updown)->get();
     return $users;

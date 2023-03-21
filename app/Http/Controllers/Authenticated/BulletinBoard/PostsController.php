@@ -69,8 +69,29 @@ class PostsController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
     }
+
+    //mainCategory追加
     public function mainCategoryCreate(Request $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
+
+        \DB::table('post_mainCategories')->insert([
+            'main_category' => $main_category
+        ]);
+        return redirect()->route('post.input');
+    }
+
+    //メインとサブカテゴリー登録
+    public function SubCategoryCreate(Request $request){
+        $main_category_id = $request->input('main_category');
+        SubCategory::create(['sub_category' => $request->sub_category_name]);
+        //$Sub_category = $request->input('sub_category');
+        //$validateData = $request -> validate([
+          //  'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:post_sub_categories'],
+        //]);
+        \DB::table('post_subCategories')->insert([
+            'main_category_id' => $main_category_id,
+            'sub_category' => $sub_category
+        ]);
         return redirect()->route('post.input');
     }
 
