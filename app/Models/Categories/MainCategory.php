@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MainCategory extends Model
 {
 
-    protected $table = 'post_mainCategories';
+    //protected $table = 'main_category';
 
 
     const UPDATED_AT = null;
@@ -16,13 +16,21 @@ class MainCategory extends Model
         'main_category'
     ];
 
-    public function subCategories(){
-        return $this->hasMany('App\Models\Posts\SubCategory');
+    // SubCategoryとのリレーション
+    public function subCategory(){
+        return $this->hasMany('App\Models\Categories\SubCategory');
     }
 
     //
-    public function mainCategoryId(Int $PostSubCategory_id)
+
+    //Postモデルとのリレーション
+    public function post()
     {
-            return $this->post_mainCategories()->attach($id);
+        return $this->hasMany('App\Models\Posts\Post');
+    }
+
+    public function mainCategoryId(Int $sub_category_id)
+    {
+            return $this->main_category()->attach($id);
     }
 }
