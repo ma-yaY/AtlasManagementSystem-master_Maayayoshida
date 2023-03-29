@@ -76,18 +76,20 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
-    //サブカテゴリー登録
-    public function SubCategoryCreate(Request $request, SubCategory $SubCategory ){
-        SubCategory::create(['sub_category' => $request->sub_category_name]);
-        //$Sub_category = $request->input('sub_category');
-        //$validateData = $request -> validate([
-          //  'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:post_sub_categories'],
-        //]);
-        \DB::table('sub_category')->insert([
-            'main_category_id' => $main_category_id,
-            'sub_category' => $sub_category
+    //メイン選択サブカテゴリー登録
+    public function SubCategoryCreate(Request $request){
+        $select_main_category = $request->input('main_category');
+        $Sub_Category = $request->input('sub_category');
+        $validateData = $request -> validate([
+            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:select_sub_categories'],
         ]);
-        return redirect()->route('post.input');
+        \DB::table('sub_categories')->insert([
+            'main_category_id' => $post_main_category_id,
+            'sub_category' => $Sub_category
+        ]);
+        //SubCategory::create(['main_category_id' => $main_category_id,'sub_category' => $request->sub_category_name]);
+
+        return redirect('/post_create');
     }
 
     public function commentCreate(Request $request){
