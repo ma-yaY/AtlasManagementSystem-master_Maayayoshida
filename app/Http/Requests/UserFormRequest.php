@@ -109,6 +109,9 @@ class UserFormRequest extends FormRequest
             'password_confirmation.min' => '確認用パスワードは8文字以上で入力してください。',
             'password_confirmation.max' => '確認用パスワードは30文字以下で入力してください。',
 
+            'sub_category.required' => 'パスワードは必須項目です。',
+
+
 
 
 

@@ -71,18 +71,15 @@ class PostsController extends Controller
     }
 
     //mainCategory追加
-    public function mainCategoryCreate(Request $request){
+    public function mainCategoryCreate(PostFormRequest $request){
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
 
     //メイン選択サブカテゴリー登録
-    public function subCategoryCreate(Request $request){
-        $main_category_id = $request->input('mainCategory_select_id');
+    public function subCategoryCreate(PostFormRequest $request){
+        $main_category_id = $request->input('main_category_id');
         $Sub_Category = $request->input('sub_category');
-        $validateData = $request -> validate([
-            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:sub_categories'],
-        ]);
         //SubCategory::create(['main_category_id' => $request->mainCategory_select_id,
         //'sub_category' => $request->sub_category_name
         //]);

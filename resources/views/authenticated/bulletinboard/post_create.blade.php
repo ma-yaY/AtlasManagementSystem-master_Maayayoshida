@@ -46,11 +46,18 @@
       </div>
       <!-- サブカテゴリー追加 -->
       <div class="">
-        @if($errors->first('sub_category'))
-             <span class="error_message">{{ $errors->first('sub_category') }}</span>
-            @endif
+        <div>
+          @if($errors->first('main_category_id'))
+            <span class="error_message">{{ $errors->first('main_category_id') }}</span>
+          @endif
+        </div>
+        <div>
+          @if($errors->first('sub_category'))
+            <span class="error_message">{{ $errors->first('sub_category') }}</span>
+          @endif
+        </div>
         <!-- メインカテゴリー選択 -->
-        <select class="w-100" name="mainCategory_select_id" form="subCategoryRequest">
+        <select class="w-100" name="main_category_id" form="subCategoryRequest">
         <option selected="" disabled="">----</option>
         @foreach($main_categories as $main_category)
         <option class="w-100" value="{{ $main_category->id }}">{{ $main_category->main_category }}</option>
