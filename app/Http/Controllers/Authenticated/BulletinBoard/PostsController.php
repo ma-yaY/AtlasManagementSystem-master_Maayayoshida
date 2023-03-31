@@ -77,19 +77,20 @@ class PostsController extends Controller
     }
 
     //メイン選択サブカテゴリー登録
-    public function SubCategoryCreate(Request $request){
-        $select_main_category = $request->input('main_category');
-        $Sub_Category = $request->input('sub_category');
+    public function subCategoryCreate(Request $request){
+        $main_category_id = $request->input('mainCategory_select_id');
+        $Sub_Category = $request->input('sub_category_name');
         $validateData = $request -> validate([
-            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:select_sub_categories'],
+            'sub_category' => ['required', 'max:100', 'string', 'min:1', 'unique:sub_categories'],
         ]);
+        //SubCategory::create(['main_category_id' => $request->mainCategory_select_id,
+        //'sub_category' => $request->sub_category_name
+        //]);
         \DB::table('sub_categories')->insert([
-            'main_category_id' => $post_main_category_id,
+            'main_category_id' => $main_category_id,
             'sub_category' => $Sub_category
         ]);
-        //SubCategory::create(['main_category_id' => $main_category_id,'sub_category' => $request->sub_category_name]);
-
-        return redirect('/post_create');
+        return redirect()->route('post.input');
     }
 
     public function commentCreate(Request $request){

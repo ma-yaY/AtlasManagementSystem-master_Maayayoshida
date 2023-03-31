@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class SubCategory extends Model
 {
 
-    //protected $table = 'post_subCategories';
+
 
     const UPDATED_AT = null;
     const CREATED_AT = null;

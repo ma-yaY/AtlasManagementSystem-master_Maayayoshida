@@ -35,6 +35,7 @@
   @can('admin')
   <div class="w-25 ml-auto mr-auto">
     <div class="category_area mt-5 p-5">
+      <!-- メインカテゴリー追加 -->
       <div class="">
         <p class="m-0">メインカテゴリー</p>
         <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
@@ -46,12 +47,12 @@
         <select class="w-100" form="postCreate" name="post_category_id">
         <option selected="" disabled="">----</option>
         @foreach($main_categories as $main_category)
-        <option value="{{ $main_category->id }}">{{ $main_category->main_category }}</option>
+        <option class="w-100" value="{{ $main_category->id }}" name="mainCategory_select_id" form="subCategoryRequest">{{ $main_category->main_category }}</option>
         @endforeach
         <div><input class="w-100" type="text" name="sub_category_name" form="subCategoryRequest"></div>
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="subCategoryRequest">
-        <!--<button type="submit" class="w-100 btn btn-primary p-0" form="subCategoryRequest">追加</button>-->
       </div>
+      <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">{{ csrf_field() }}</form>
       <form action="{{ route('main.category.create') }}" method="post" id="mainCategoryRequest">{{ csrf_field() }}</form>
     </div>
   </div>
