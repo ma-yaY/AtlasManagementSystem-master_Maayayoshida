@@ -9,10 +9,10 @@
         <option selected disabled>----</option>
         @foreach($main_categories as $main_category)
         <option disabled label="{{ $main_category->main_category }}"></option>
-        @endforeach
         <!-- サブカテゴリー表示 -->
         @foreach ($main_category->subCategory as $sub_category)
         <option label="{{ $sub_category->sub_category }}"></option>
+        @endforeach
         @endforeach
       </select>
     </div>
@@ -40,8 +40,11 @@
     <div class="category_area mt-5 p-5">
       <!-- メインカテゴリー追加 -->
       <div class="">
+          @if($errors->first('main_category'))
+            <span class="error_message">{{ $errors->first('main_category') }}</span>
+          @endif
         <p class="m-0">メインカテゴリー</p>
-        <input type="text" class="w-100" name="main_category_name" form="mainCategoryRequest">
+        <input type="text" class="w-100" name="main_category" form="mainCategoryRequest">
         <input type="submit" value="追加" class="w-100 btn btn-primary p-0" form="mainCategoryRequest">
       </div>
       <!-- サブカテゴリー追加 -->
@@ -57,6 +60,7 @@
           @endif
         </div>
         <!-- メインカテゴリー選択 -->
+        <p class="m-0">サブカテゴリー</p>
         <select class="w-100" name="main_category_id" form="subCategoryRequest">
         <option selected="" disabled="">----</option>
         @foreach($main_categories as $main_category)

@@ -11,6 +11,8 @@ use App\Models\Posts\PostComment;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
+use App\Http\Requests\BulletinBoard\MainRequest;
+use App\Http\Requests\BulletinBoard\SubRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -71,18 +73,17 @@ class PostsController extends Controller
     }
 
     //mainCategory追加
-    public function mainCategoryCreate(PostFormRequest $request){
-        MainCategory::create(['main_category' => $request->main_category_name]);
+    public function mainCategoryCreate(MainRequest $request){
+
+        MainCategory::create(['main_category' => $request->main_category]);
         return redirect()->route('post.input');
     }
 
     //メイン選択サブカテゴリー登録
-    public function subCategoryCreate(PostFormRequest $request){
+    public function subCategoryCreate(SubRequest $request){
         $main_category_id = $request->input('main_category_id');
         $Sub_Category = $request->input('sub_category');
-        //SubCategory::create(['main_category_id' => $request->mainCategory_select_id,
-        //'sub_category' => $request->sub_category_name
-        //]);
+
         \DB::table('sub_categories')->insert([
             'main_category_id' => $main_category_id,
             'sub_category' => $Sub_Category
