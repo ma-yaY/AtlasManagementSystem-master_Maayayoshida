@@ -107,7 +107,7 @@ class PostsController extends Controller
     }
 
     public function likeBulletinBoard(){
-        $like_post_id = Like::with('users')->where('like_user_id', Auth::id())->get('like_post_id')->toArray();
+        $like_post_id = Like::with('users')->where('like_user_id', Auth::id())->get('like_post_id')->toArray();//like_user_idとuser_idを配列に変換
         $posts = Post::with('user')->whereIn('id', $like_post_id)->get();
         $like = new Like;
         return view('authenticated.bulletinboard.post_like', compact('posts', 'like'));
@@ -122,4 +122,7 @@ class PostsController extends Controller
         Auth::user()->likes()->detach($request->post_id);
         return response()->json();
     }
+
+
+
 }

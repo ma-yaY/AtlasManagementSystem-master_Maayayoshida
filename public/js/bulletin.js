@@ -45,10 +45,15 @@ $(function () {
       $('.like_counts' + post_id).text(countInt - 1);
     }).fail(function () {
 
+      $this.next('.like_counts').html
+        (data.review_like_count);
+      //nextはdone と value を持つオブジェクトを返す
+
     });
+
   });
 
-  $('.edit-modal-open').on('click',function(){
+  $('.edit-modal-open').on('click', function () {
     $('.js-modal').fadeIn();
     var post_title = $(this).attr('post_title');
     var post_body = $(this).attr('post_body');

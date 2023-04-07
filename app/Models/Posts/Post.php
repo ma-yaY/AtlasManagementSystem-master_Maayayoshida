@@ -19,6 +19,13 @@ class Post extends Model
     public function user(){
         return $this->belongsTo('App\Models\Users\User');
     }
+
+    // Likeとのリレーション
+    public function Like()
+    {
+        return $this->hasMany('App\Models\Posts\Like');
+    }
+
     // PostCommentリレーション投稿に対してのコメント
     public function postComments(){
         return $this->hasMany('App\Models\Posts\PostComment');
@@ -33,4 +40,7 @@ class Post extends Model
     public function commentCounts($post_id){
         return Post::with('postComments')->find($post_id)->postComments();
     }
+
+
+
 }
