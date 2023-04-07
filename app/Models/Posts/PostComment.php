@@ -17,6 +17,7 @@ class PostComment extends Model
         'comment',
     ];
 
+    // Postとのリレーション
     public function post(){
         return $this->belongsTo('App\Models\Posts\Post');
     }
@@ -24,4 +25,12 @@ class PostComment extends Model
     public function commentUser($user_id){
         return User::where('id', $user_id)->first();
     }
+
+        public function UserComments(Int $id)
+    {
+    $Comment_ids[] = $id;
+
+    return $this->where('id', $Comment_ids);
+    }
+
 }
