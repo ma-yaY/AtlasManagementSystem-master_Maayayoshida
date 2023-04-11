@@ -111,6 +111,9 @@ class PostsController extends Controller
         $posts = Post::with('user')->whereIn('id', $like_post_id)->get();
         $like = new Like;
         return view('authenticated.bulletinboard.post_like', compact('posts', 'like'));
+
+
+
     }
 
     public function postLike(Request $request){
@@ -121,7 +124,9 @@ class PostsController extends Controller
     public function postUnLike(Request $request){
         Auth::user()->likes()->detach($request->post_id);
         return response()->json();
+
     }
+
 
 
 

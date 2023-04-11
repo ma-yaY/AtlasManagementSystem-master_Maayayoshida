@@ -4,6 +4,7 @@ namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Users\User;
+use App\Models\Posts\like;
 
 class Post extends Model
 {
@@ -21,7 +22,7 @@ class Post extends Model
     }
 
     // Likeとのリレーション
-    public function Like()
+    public function postLikes()
     {
         return $this->hasMany('App\Models\Posts\Like');
     }

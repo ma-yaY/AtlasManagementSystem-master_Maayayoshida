@@ -3,6 +3,8 @@
 namespace App\Models\Posts;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Posts\Post;
+
 
 class Like extends Model
 {
@@ -25,6 +27,6 @@ class Like extends Model
 
 
     public function likeCounts($post_id){
-        return $this->where('like_post_id', $post_id)->get()->count();
+        return $this->where('like_post_id', $post_id)->get()->count();//既にカウントしている。
     }
 }
