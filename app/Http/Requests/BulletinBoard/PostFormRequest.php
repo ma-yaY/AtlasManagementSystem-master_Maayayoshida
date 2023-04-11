@@ -25,7 +25,7 @@ class PostFormRequest extends FormRequest
     {
         return [
 
-            'post_category_id' => 'required|exists:sub_categories',
+            'post_category_id' => 'required',
             'post_title' => 'required|min:4|max:50',
             'post_body' => 'required|min:10|max:500',
         ];
@@ -34,7 +34,7 @@ class PostFormRequest extends FormRequest
     public function messages(){
         return [
             'post_category_id.required' => 'カテゴリー選択は必須項目です。',
-            'post_category_id.required' => '登録されているカテゴリーを選択してください。',
+            /*'post_category_id.exists' => '登録されているカテゴリーを選択してください。',*/
 
             'post_title.required' => 'タイトルは入力必須です。',
             'post_title.min' => 'タイトルは4文字以上入力してください。',

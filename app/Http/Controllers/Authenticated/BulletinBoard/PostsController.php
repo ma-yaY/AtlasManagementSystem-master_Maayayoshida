@@ -13,6 +13,7 @@ use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
 use App\Http\Requests\BulletinBoard\MainRequest;
 use App\Http\Requests\BulletinBoard\SubRequest;
+use App\Http\Requests\BulletinBoard\commentFormRequest;
 use Auth;
 
 class PostsController extends Controller
@@ -91,7 +92,7 @@ class PostsController extends Controller
         return redirect()->route('post.input');
     }
 
-    public function commentCreate(Request $request){
+    public function commentCreate(commentFormRequest $request){
         PostComment::create([
             'post_id' => $request->post_id,
             'user_id' => Auth::id(),
