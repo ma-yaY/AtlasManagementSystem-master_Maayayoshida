@@ -25,7 +25,7 @@ class PostFormRequest extends FormRequest
     {
         return [
 
-            'post_category_id' => 'required',
+            /*'post_category_id' => ['required','exists:sub_categories,sub_category'],バリデーション邪魔してる*/
             'post_title' => 'required|min:4|max:50',
             'post_body' => 'required|min:10|max:500',
         ];
