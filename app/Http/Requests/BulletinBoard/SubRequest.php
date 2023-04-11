@@ -4,6 +4,7 @@ namespace App\Http\Requests\BulletinBoard;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class SubRequest extends FormRequest
 {
     /**
@@ -25,7 +26,7 @@ class SubRequest extends FormRequest
     {
         return [
             /*メインカテゴリー選択*/
-            'main_category_id' => 'required|exists:sub_categories',
+            'main_category_id' => 'required|exists:main_categories,main_category',
 
             /*サブカテゴリー追加*/
             'sub_category' =>'required|max:100|string|min:1|unique:sub_categories',
