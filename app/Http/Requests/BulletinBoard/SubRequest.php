@@ -26,7 +26,7 @@ class SubRequest extends FormRequest
     {
         return [
             /*メインカテゴリー選択*/
-            'main_category_id' => ['required', 'exists:main_categories,main_category'],
+            'main_category_id' => 'required','exists:id,main_category',
 
             /*サブカテゴリー追加*/
             'sub_category' =>'required|max:100|string|min:1|unique:sub_categories',
@@ -39,7 +39,7 @@ class SubRequest extends FormRequest
 
             /*メインカテゴリー*/
             'main_category_id.required' => 'メインカテゴリーの選択は必須です。',
-            'main_category_id.exists' => '登録されているメインカテゴリーを選択してください。',
+            'main_category.exists' => '登録されているメインカテゴリーを選択してください。',
             /*サブカテゴリー*/
             'sub_category.required' => 'サブカテゴリーの入力は必須です。',
             'sub_category.max' => '内容は100文字以内入力してください。',
