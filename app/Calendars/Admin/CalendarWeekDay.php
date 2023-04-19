@@ -75,7 +75,7 @@ class CalendarWeekDay{
     return $three_part_frame;
   }
 
-  //
+  //調整？
   function dayNumberAdjustment(){
     $html = [];
     $html[] = '<div class="adjust-area">';
