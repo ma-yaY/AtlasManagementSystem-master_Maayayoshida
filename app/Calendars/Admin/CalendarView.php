@@ -13,7 +13,9 @@ class CalendarView{
   public function getTitle(){
     return $this->carbon->format('Y年n月');
   }
-
+  /**
+	 * カレンダーを出力する
+	 */
   public function render(){
     $html = [];
     $html[] = '<div class="calendar text-center">';

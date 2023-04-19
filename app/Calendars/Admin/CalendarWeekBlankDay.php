@@ -8,7 +8,7 @@ class CalendarWeekBlankDay extends CalendarWeekDay{
   }
 
   function render(){
-    return '';
+    return "";
   }
 
   function everyDay(){

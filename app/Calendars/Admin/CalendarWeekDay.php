@@ -11,18 +11,20 @@ class CalendarWeekDay{
     $this->carbon = new Carbon($date);
   }
 
+  /*クラス名の取得*/
   function getClassName(){
     return "day-" . strtolower($this->carbon->format("D"));
   }
 
+  /*日付をテンプレートを表示すること（＝レンダリングすること）*/
   function render(){
     return '<p class="day">' . $this->carbon->format("j") . '日</p>';
   }
-
+  /*毎日の配列方法*/
   function everyDay(){
     return $this->carbon->format("Y-m-d");
   }
-
+  /*その日の中身*/
   function dayPartCounts($ymd){
     $html = [];
     $one_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();

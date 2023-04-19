@@ -17,7 +17,8 @@ class CalendarWeekDay{
   }
 
   function pastClassName(){
-    return;
+    return "day-";
+    /*作業中""は空白だった*/
   }
 
   /**
