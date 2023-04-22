@@ -14,11 +14,12 @@ class CalendarWeekDay{
 
   function getClassName(){
     return "day-" . strtolower($this->carbon->format("D"));
+    /*D=曜日。3文字のテキスト形式。*/
   }
 
   function pastClassName(){
-    return "day-";
-    /*作業中""は空白だった*/
+    return "day-" . strtolower($this->carbon->format("D"));
+    /*strtolower文字列を小文字にして返す*/
   }
 
   /**
