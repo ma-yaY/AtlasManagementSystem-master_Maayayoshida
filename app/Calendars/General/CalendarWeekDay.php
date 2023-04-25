@@ -28,6 +28,7 @@ class CalendarWeekDay{
 
    function render(){
      return '<p class="day">' . $this->carbon->format("j"). '日</p>';
+
    }
 
    function selectPart($ymd){
@@ -38,6 +39,7 @@ class CalendarWeekDay{
        $one_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first()->limit_users;
      }else{
        $one_part_frame = '0';
+
      }
      if($two_part_frame){
        $two_part_frame = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first()->limit_users;
@@ -51,6 +53,7 @@ class CalendarWeekDay{
      }
 
      $html = [];
+
      $html[] = '<select name="getPart[]" class="border-primary" style="width:70px; border-radius:5px;" form="reserveParts">';
      $html[] = '<option value="" selected></option>';
      if($one_part_frame == "0"){
