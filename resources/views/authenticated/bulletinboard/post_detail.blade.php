@@ -12,6 +12,12 @@
             <a href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいですか？')">削除</a>
           </div>
         </div>
+          @if($errors->first('post_title'))
+            <span class="error_message">{{ $errors->first('post_title') }}</span>
+          @endif
+          @if($errors->first('post_body'))
+            <span class="error_message">{{ $errors->first('post_body') }}</span>
+          @endif
         <div class="contributor d-flex">
           <p>
             <span>{{ $post->user->over_name }}</span>
