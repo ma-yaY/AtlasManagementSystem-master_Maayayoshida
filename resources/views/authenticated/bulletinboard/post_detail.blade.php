@@ -19,7 +19,10 @@
             <span class="error_message">{{ $errors->first('post_body') }}</span>
           @endif
         <div class="contributor d-flex">
+
           <p>
+
+            <!--<span>{{ $post->SubCategory($sub_category->post->id)->sub_category }}</span>-->
             <span>{{ $post->user->over_name }}</span>
             <span>{{ $post->user->under_name }}</span>
             さん
