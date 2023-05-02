@@ -27,6 +27,7 @@ class CalendarsController extends Controller
             foreach($reserveDays as $key => $value){
                 $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
                 $reserve_settings->decrement('limit_users');
+                //decrement減少increment増加
                 $reserve_settings->users()->attach(Auth::id());
             }
             DB::commit();
