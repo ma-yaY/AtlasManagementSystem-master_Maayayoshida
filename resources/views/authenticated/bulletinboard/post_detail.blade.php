@@ -21,8 +21,6 @@
         <div class="contributor d-flex">
 
           <p>
-
-            <!--<span>{{ $post->SubCategory($sub_category->post->id)->sub_category }}</span>-->
             <span>{{ $post->user->over_name }}</span>
             <span>{{ $post->user->under_name }}</span>
             さん
