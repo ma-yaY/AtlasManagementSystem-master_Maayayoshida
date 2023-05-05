@@ -62,7 +62,7 @@ class CalendarView{
           }
           /**今日より以前の日にち */
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
-            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px"></p>';
+            $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart .'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
 
           }else{
