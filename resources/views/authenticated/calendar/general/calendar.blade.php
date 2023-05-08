@@ -21,8 +21,8 @@
     <form action="{{ route('deleteParts') }}" method="post">
       <div class="w-100">
         <div class="modal-inner-title w-50 m-auto">
-            <p class="m-auto">予約日:{{$user_reserve->setting_part}} <span></span></p>
-            <p class="m-auto">時間:<span></span></p>
+            <p class="m-auto">予約日:<span>{{$user_reserve->setting_reserve}}</span></p>
+            <p class="m-auto">時間:<span>{{$user_reserve->setting_part}}</span></p>
           <p >上記の予約をキャンセルしてもよろしいですか？</p>
         </div>
 
