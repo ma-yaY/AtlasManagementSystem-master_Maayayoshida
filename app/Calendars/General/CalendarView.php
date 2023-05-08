@@ -65,11 +65,13 @@ class CalendarView{
             $html[] = '<p class="m-auto p-0 w-75" style="font-size:12px">'. $reservePart .'参加</p>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
 
+
           }else{
-            /**予約をキャンセルしていたら
+            /**予約をキャンセルする場合。
                first()＝単一のレコード取得*/
-            $html[] = '<button type="submit" class="btn btn-danger p-0 w-75" name="delete_date" style="font-size:12px" value=""'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button  type="submit" class="btn btn-danger edit-modal-open p-0 w-75" name="delete_date" style="font-size:12px" value=""'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+
           }
           }else {/*予約してない*/
             /*予約してなくて日付が今日以前*/

@@ -15,7 +15,8 @@ class CalendarsController extends Controller
 {
     public function show(){
         $calendar = new CalendarView(time());
-        return view('authenticated.calendar.general.calendar', compact('calendar'));
+        $user_reserve = new ReserveSettings();
+        return view('authenticated.calendar.general.calendar', compact('calendar','user_reserve'));
     }
 
     public function reserve(Request $request){
@@ -35,5 +36,11 @@ class CalendarsController extends Controller
             DB::rollback();
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
+
+
+        /*キャンセル用メソッド描く
+        public function delete(Request $request){
+
+        /*}*/
     }
 }
