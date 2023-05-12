@@ -69,8 +69,8 @@ class CalendarView{
           }else{
             /**予約をキャンセルする場合。
                first()＝単一のレコード取得*/
-            $html[] = '<button  type="submit" class="btn btn-danger edit-modal-open p-0 w-75" name="delete_date" style="font-size:12px" value=""'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
-            $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts">';
+            $html[] = '<button id="ModalContent" type="submit" class="btn btn-danger edit-modal-open p-0 w-75" name="delete_date" style="font-size:12px" value=""'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<input type="hidden" name="getPart[]" id="ModalContent" value="" form="reserveParts" onclick="showModalWindow();">';
 
           }
           }else {/*予約してない*/
