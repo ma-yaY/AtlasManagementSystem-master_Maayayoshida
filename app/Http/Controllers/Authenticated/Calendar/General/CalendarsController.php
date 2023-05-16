@@ -40,6 +40,8 @@ class CalendarsController extends Controller
 
         /*キャンセル用メソッド描く
         public function delete(Request $request){
+            //予約の反対を考える。
+
 
         /*}*/
     }
