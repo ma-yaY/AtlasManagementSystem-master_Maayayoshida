@@ -4,6 +4,7 @@ $(function () {
     //変数定義
     var delete_part = $(this).attr('delete_part');
     var delete_date = $(this).val();
+    //valueに日付が入っていたのでバリューを使って表示
 
     //モーダルに送る記述
     $('.modal-inner-part #delete_part').val(delete_part);
