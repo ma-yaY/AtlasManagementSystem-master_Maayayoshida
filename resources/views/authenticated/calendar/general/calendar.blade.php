@@ -19,10 +19,11 @@
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content" >
 
+    <!--<form>タグはCalendarViewに記述済み-->
       <div class="w-100">
         <div class="modal-inner-part w-50 m-auto">
-            <p>予約日：<input type="hidden" style="border:none" id="delete_date" name="delete_date" value=""  disabled form="deleteParts"></p>
-            <p>時間：<input type="text" style="border:none" id="delete_part" name="delete_part" value="" disabled form="deleteParts"></p>
+            <p>予約日：<input type="text" style="border:none" id="delete_date" name="delete_date" value="" readonly form="deleteParts"></p>
+            <p>時間：リモ<input type="text" style="border:none" id="delete_part" name="delete_part" value="" readonly form="deleteParts" size="1">部</p>
           <p >上記の予約をキャンセルしてもよろしいですか？</p>
         </div>
 

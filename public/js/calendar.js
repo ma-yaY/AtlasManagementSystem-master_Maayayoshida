@@ -3,6 +3,7 @@ $(function () {
     $('.js-modal').fadeIn();
     //変数定義
     var delete_part = $(this).attr('delete_part');
+    //var delete_part = $(this).attr('delete_part');
     var delete_date = $(this).val();
     //valueに日付が入っていたのでバリューを使って表示
 
@@ -10,8 +11,7 @@ $(function () {
     $('.modal-inner-part #delete_part').val(delete_part);
     $('.modal-inner-part #delete_date').val(delete_date);
 
-    $('.modal-inner-part #delete_part').text(delete_part);
-    $('.modal-inner-part #delete_date').text(delete_date);
+
 
     return false;
   });

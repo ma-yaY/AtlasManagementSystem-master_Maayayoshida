@@ -51,7 +51,8 @@ class CalendarsController extends Controller
 
 
     public function delete(Request $request){
-        dd($request);
+
+
         DB::beginTransaction();//以下処理のワンセット
         try{
             $cancelPart = $request->delete_part;

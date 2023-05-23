@@ -54,11 +54,11 @@ class CalendarView{
         if(in_array($day->everyDay(), $day->authReserveDay())){
           $reservePart = $day->authReserveDate($day->everyDay())->first()->setting_part;
           if($reservePart == 1){
-            $reservePart = "リモ1部";
+            $reservePart = "1";
           }else if($reservePart == 2){
-            $reservePart = "リモ2部";
+            $reservePart = "2";
           }else if($reservePart == 3){
-            $reservePart = "リモ3部";
+            $reservePart = "3";
           }
           /**今日より以前の日にち */
           if($startDay <= $day->everyDay() && $toDay >= $day->everyDay()){
@@ -69,7 +69,7 @@ class CalendarView{
           }else{/*class="'.$week->getClassName().'"
             /**予約をキャンセルする場合。
                first()＝単一のレコード取得*/
-            $html[] = '<button type="submit" class="danger-modal-open btn btn-danger p-0 w-75"  delete_part="'.$reservePart.'" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">'. $reservePart .'</button>';
+            $html[] = '<button type="submit" class="danger-modal-open btn btn-danger p-0 w-75"  delete_part="'.$reservePart.'" style="font-size:12px" value="'. $day->authReserveDate($day->everyDay())->first()->setting_reserve .'">リモ'. $reservePart .'部</button>';
             $html[] = '<input type="hidden" name="getPart[]" value="" form="reserveParts" >';
 
           }
