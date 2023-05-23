@@ -55,7 +55,7 @@ $(function () {
 
   $('.edit-modal-open').on('click', function () {
     $('.js-modal').fadeIn();
-    //変数定義
+    //変数定義.attrで属性取得
     var post_title = $(this).attr('post_title');
     var post_body = $(this).attr('post_body');
     var post_id = $(this).attr('post_id');
