@@ -35,7 +35,6 @@ class CalendarsController extends Controller
             //コールバック関数使用し配列要素をフィルタリングする場合array_filter
             $reserveDays = array_filter(array_combine($getDate, $getPart));
             //2つの配列の一方をキー名、もう一方を値として、1つの配列に結合array_combine
-
             foreach($reserveDays as $key => $value){
                 $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
                 $reserve_settings->decrement('limit_users');
@@ -52,21 +51,16 @@ class CalendarsController extends Controller
 
 
     public function delete(Request $request){
+        dd($request);
         DB::beginTransaction();//以下処理のワンセット
         try{
-            $cancelPart = $request->getPart;
-            $cancelDate = $request->getData;
+            $cancelPart = $request->delete_part;
+            $cancelDate = $request->delete_date;
 
-            /*$cancelDays = ;*/
-
-            foreach($cancelPart. $cancelDate  as $key => $value){
-                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
+                $reserve_settings = ReserveSettings::where('setting_reserve', $cancelDate)->where('setting_part', $cancelPart)->first();
                 $reserve_settings->increment('limit_users');
                 //decrement減少increment増加
-                $reserve_settings->users()->attach(Auth::id());
-            }
-            dd($request);
-
+                $reserve_settings->users()->detach(Auth::id());/*修正*/
             DB::commit();
         }catch(\Exception $e){
             DB::rollback();

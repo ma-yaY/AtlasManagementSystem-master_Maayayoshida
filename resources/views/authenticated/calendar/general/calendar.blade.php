@@ -18,22 +18,19 @@
   <div class="modal js-modal" >
     <div class="modal__bg js-modal-close"></div>
     <div class="modal__content" >
-    <form action="{{ route('deleteParts') }}" method="post" id="ModalContent">
+
       <div class="w-100">
         <div class="modal-inner-part w-50 m-auto">
-            <p>予約日：<input type="" style="border:none" id="delete_date" name="delete_date" value="" disabled></input></p>
-            <p>時間：<input type="" style="border:none" id="delete_part" name="delete_part" value="" disabled></input></p>
+            <p>予約日：<input type="hidden" style="border:none" id="delete_date" name="delete_date" value=""  disabled form="deleteParts"></p>
+            <p>時間：<input type="text" style="border:none" id="delete_part" name="delete_part" value="" disabled form="deleteParts"></p>
           <p >上記の予約をキャンセルしてもよろしいですか？</p>
         </div>
 
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-danger d-inline-block" href="">閉じる</a>
-          <input type="hidden" class="edit-modal-hidden" name="delete_date" value="">
-          <input type="submit"  class="btn btn-primary d-block" href="{{ route('deleteParts')}}" value="キャンセル">
+          <input type="submit"  class="btn btn-primary d-block" value="キャンセル" form="deleteParts">
         </div>
       </div>
-      {{ csrf_field() }}
-    </form>
     </div>
   </div>
 @endsection

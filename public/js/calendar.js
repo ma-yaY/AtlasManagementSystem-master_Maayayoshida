@@ -10,6 +10,9 @@ $(function () {
     $('.modal-inner-part #delete_part').val(delete_part);
     $('.modal-inner-part #delete_date').val(delete_date);
 
+    $('.modal-inner-part #delete_part').text(delete_part);
+    $('.modal-inner-part #delete_date').text(delete_date);
+
     return false;
   });
   $('.js-modal-close').on('click', function () {
