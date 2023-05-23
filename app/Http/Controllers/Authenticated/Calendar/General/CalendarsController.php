@@ -57,7 +57,6 @@ class CalendarsController extends Controller
         try{
             $cancelPart = $request->delete_part;
             $cancelDate = $request->delete_date;
-
                 $reserve_settings = ReserveSettings::where('setting_reserve', $cancelDate)->where('setting_part', $cancelPart)->first();
                 $reserve_settings->increment('limit_users');
                 //decrement減少increment増加
