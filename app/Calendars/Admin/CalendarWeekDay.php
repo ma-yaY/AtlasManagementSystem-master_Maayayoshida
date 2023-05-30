@@ -27,6 +27,7 @@ class CalendarWeekDay{
   /*その日の中身*/
   function dayPartCounts($ymd){
     $html = [];
+    /*ReserveSettings Modelを使用して、リレーションしたusersを使用。*/
     $one_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();
     $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
@@ -34,15 +35,20 @@ class CalendarWeekDay{
     $html[] = '<div class="text-left">';
     if($one_part){
 
-      $html[] = '<p class="day_part m-0 pt-1" value="'.ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first()->limit_users.'">1部'.$limit_users.'</p>';
+      /*上記で定義したpart（部）より、usersにある予約情報をカウント*/
+      /*web.phpにnameがあるのでリンクはroute*/
+      $html[] = '<p class="day_part m-0 pt-1"><a1部 href= "'.route('calendar.admin.detail',$reservePersons->id).'">1部</a>'.$one_part->users->count().'</p>';
+
+
+      /*<a href= "'.route('calendar.admin.detail',['reservePersons'=>'人数']).'"></a>*/
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+      $html[] = '<p class="day_part m-0 pt-1">2部'.$two_part->users->count().'</p>';
 
 
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+      $html[] = '<p class="day_part m-0 pt-1">3部'.$three_part->users->count().'</p>';
     }
     $html[] = '</div>';
 
