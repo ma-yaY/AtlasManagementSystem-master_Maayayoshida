@@ -33,10 +33,13 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+
+      $html[] = '<p class="day_part m-0 pt-1" value="'.ReserveSettings::where('setting_reserve', $day)->where('setting_part', '1')->first()->limit_users.'">1部'.$limit_users.'</p>';
     }
     if($two_part){
       $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+
+
     }
     if($three_part){
       $html[] = '<p class="day_part m-0 pt-1">3部</p>';
