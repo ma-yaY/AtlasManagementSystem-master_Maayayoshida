@@ -37,7 +37,7 @@ class CalendarWeekDay{
 
       /*上記で定義したpart（部）より、usersにある予約情報をカウント*/
       /*web.phpにnameがあるのでリンクはroute*/
-      $html[] = '<p class="day_part m-0 pt-1"><a1部 href= "'.route('calendar.admin.detail',$reservePersons->id).'">1部</a>'.$one_part->users->count().'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a1部 href= "'.route('calendar.admin.detail',['reservePersons'=>$one_part->users, 'date'=>$one_part->setting_reserve, 'part'->$one_part->setting_part]).'">1部</a>'.$one_part->users->count().'</p>';
 
 
       /*<a href= "'.route('calendar.admin.detail',['reservePersons'=>'人数']).'"></a>*/
