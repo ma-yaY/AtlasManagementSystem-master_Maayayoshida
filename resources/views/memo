@@ -1,0 +1,9 @@
+<!--過去課題でよく見てきた記述-->
+<!--<form action="/test" method="get or post">
+<input type="" name="" value="">
+<button type="submit">
+</form>-->
+<!--改修課題で起用されている記述
+<form action="/test" method="get or post" id="〇〇"></form>
+<input type="" name="" value="" form="〇〇">
+<button type="submit" form="〇〇">-->
