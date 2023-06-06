@@ -40,7 +40,8 @@ Route::group(['middleware' => 'auth'], function(){
             Route::namespace('Admin')->group(function(){
                 Route::get('/calendar/{user_id}/admin', 'CalendarsController@show')->name('calendar.admin.show');
                 /*予約詳細*/
-                Route::get('/calendar/{id}/{data}/{part?}', 'CalendarsController@reserveDetail')->name('calendar.admin.detail');
+
+                Route::get('/calendar/{id}/{date}/{part?}', 'CalendarsController@reserveDetail')->name('calendar.admin.detail');
                 /**/
                 Route::get('/setting/{user_id}/admin', 'CalendarsController@reserveSettings')->name('calendar.admin.setting');
                 /*更新*/
