@@ -5,7 +5,10 @@
   <div class="post_view w-75 mt-5">
     <p class="w-75 m-auto">投稿一覧</p>
     @foreach($posts as $post)
-    <div class="post_area border w-75 m-auto p-3">
+      <div class="post_area border w-75 m-auto p-3">
+        @foreach($categories as $categorie_s)
+          <p><span>{{ $categorie_s->sub_category}}</span></p>
+        @endforeach
       <p><span>{{ $post->user->over_name }}</span><span class="ml-3">{{ $post->user->under_name }}</span>さん</p>
       <p><a href="{{ route('post.detail', ['id' => $post->id]) }}">{{ $post->post_title }}</a></p>
       <div class="post_bottom_area d-flex">
@@ -37,7 +40,10 @@
       <input type="submit" name="my_posts" class="category_btn" value="自分の投稿" form="postSearchRequest">
       <ul>
         @foreach($categories as $category)
-        <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}<span></li>
+        <li class="main_categories"><span>{{ $category->main_category }}<span></li>
+          @foreach($category->subCategory as $subCategory)
+          <li><input type="submit" name="category_word" class="category_btn" value="{{ $subCategory->sub_category }}" form="postSearchRequest"></li>
+          @endforeach
         @endforeach
       </ul>
     </div>

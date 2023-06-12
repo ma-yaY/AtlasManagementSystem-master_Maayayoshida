@@ -20,7 +20,8 @@ use Auth;
 class PostsController extends Controller
 {
     public function show(Request $request){
-        $posts = Post::with('user', 'postComments')->get();
+
+        $posts = Post::with('user', 'postComments', 'subCategory')->get();
         $categories = MainCategory::get();
         $like = new Like;
         $post_comment = new Post;
@@ -118,6 +119,8 @@ class PostsController extends Controller
 
 
     }
+
+
 
     public function postLike(Request $request){
         Auth::user()->likes()->attach($request->post_id);

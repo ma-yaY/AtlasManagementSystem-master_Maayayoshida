@@ -20,7 +20,7 @@
         <tr class="text-center">
           @foreach($reservePersons->users as $user_s)
               <td class="w-25"><span>{{ $user_s->id}}</span></td>
-              <td class="w-25"><span>{{ $user_s->over_name}}</span><span>{{ $user_s->under_name}}</span>
+              <td class="w-25"><span>{{ $user_s -> over_name}}</span><span>{{ $user_s -> under_name}}</span>
               <td class="w-25"><span>リモート</span></td>
               <td class="ml-3"><span></span></td>
 

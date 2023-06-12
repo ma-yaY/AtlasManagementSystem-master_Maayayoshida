@@ -33,8 +33,8 @@ class Post extends Model
     }
 
     // SubCategoryリレーション
-    public function subCategories(){
-        return $this->belongsTo('App\Models\Posts\SubCategory');
+    public function subCategory(){
+        return $this->belongsTo('App\Models\Categories\SubCategory');
     }
 
     // コメント数
