@@ -13,11 +13,11 @@
           <span></span>
         </tr>
         <tr class="text-center">
-
-
-
-          <td class="w-25"><span></span>
-          <td class="ml-3"><span>{{ $reservePersons }}</span></td>
+          @foreach($reservePersons as $ReservePersons)
+            <td class="w-25"><span>{{ $reservePersons->user_id}}</span></td>
+            <td class="w-25"><span>{{ $reservePersons->reserve_setting_users}}</span>
+            <td class="ml-3"><span></span></td>
+          @endforeach
 
 
           <td class="w-25"></td>
