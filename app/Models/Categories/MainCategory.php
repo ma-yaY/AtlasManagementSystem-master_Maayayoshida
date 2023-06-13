@@ -21,10 +21,8 @@ class MainCategory extends Model
         return $this->hasMany('App\Models\Categories\SubCategory');
     }
 
-    //
-
     //Postモデルとのリレーション
-    public function post()
+    public function posts()
     {
         return $this->hasMany('App\Models\Posts\Post');
     }

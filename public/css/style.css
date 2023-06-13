@@ -133,7 +133,8 @@ li {
 }
 
 .post_bottom_area {
-  justify-content: space-between;
+  justify-content: flex-end;
+
 }
 
 .like_btn,
@@ -224,12 +225,14 @@ li {
 }
 
 .category_btn {
+  margin-left: 10px;
   font-size: 12px;
   border-radius: 5px;
   padding: 0 5px;
   border: none;
   background: #999;
   color: #FFF;
+
 }
 
 .main_categories span,

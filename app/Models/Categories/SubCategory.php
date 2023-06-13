@@ -21,6 +21,7 @@ class SubCategory extends Model
         return $this->belongsTo('App\Models\Categories\MainCategory');
     }
 
+    //postとのリレーション
     public function posts(){
         return $this->hasMany('App\Models\Posts\Post');
     }
