@@ -32,9 +32,10 @@ class Post extends Model
         return $this->hasMany('App\Models\Posts\PostComment');
     }
 
+
     // SubCategoryリレーション
     public function subCategory(){
-        return $this->belongsTo('App\Models\Categories\SubCategory');
+        return $this->belongsToMany('App\Models\Posts\Post','post_sub_categories', 'post_id', 'sub_category_id')->withPivot('post_id', 'sub_category_id');
     }
 
     // コメント数

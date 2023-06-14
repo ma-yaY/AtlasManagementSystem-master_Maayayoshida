@@ -11,12 +11,13 @@
 
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
-          @foreach($post->subCategory as $categorie_s)
-            <p><span>{{ $categorie_s->sub_category}}</span></p>
-          @endforeach
           <div class="mr-5">
-            <i class="fa fa-comment"></i><span class="">{{$post->postComments->count()}}</span>
-
+          @foreach($post->subCategory as $category)
+              <p><span>{{ $category->post_sub_categories}}</span></p>
+          @endforeach
+          </div>
+          <div class="mr-5">
+            <i class="fa fa-comment"></i><span class="">{{$post->postComments->count($post->id)}}</span>
           </div>
           <div>
             @if(Auth::user()->is_Like($post->id))
@@ -25,6 +26,7 @@
             <p class="m-0"><i class="fas fa-heart like_btn" post_id="{{ $post->id }}"></i><span class="like_counts{{ $post->id }}">{{$like->likeCounts($post->id)}}</span></p>
             @endif
           </div>
+
         </div>
       </div>
     </div>

@@ -19,11 +19,11 @@ use Auth;
 
 class PostsController extends Controller
 {
-    public function show(Request $request){
 
+
+    public function show(Request $request){
+        $posts = Post::with('user', 'postComments','subCategory')->get();
         $categories = MainCategory::get();
-        $posts = Post::with('user', 'postComments', 'subCategory')->get();
-        $categories = MainCategory::with('subCategory')->get();
         $like = new Like;
         $post_comment = new Post;
         if(!empty($request->keyword)){
@@ -41,6 +41,7 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
+
 
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
