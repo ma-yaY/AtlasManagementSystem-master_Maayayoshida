@@ -9,7 +9,6 @@
             @foreach($post->subCategories as $sub_Category)
             <p><span>{{ $sub_Category->posts->id }}</span></p>
             @endforeach
-
           </div>
           <div>
             <span class="edit-modal-open" post_title="{{ $post->post_title }}" post_body="{{ $post->post }}" post_id="{{ $post->id }}">編集</span>
