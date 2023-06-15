@@ -17,7 +17,7 @@ class MainCategory extends Model
     ];
 
     // SubCategoryとのリレーション
-    public function subCategory(){
+    public function subCategories(){
         return $this->hasMany('App\Models\Categories\SubCategory');
     }
 
