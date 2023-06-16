@@ -281,7 +281,7 @@ li {
 }
 
 .searchPostForm {
-  width: 70%;
+  width: 65%;
   padding: 10px;
   border: thin solid #999999;
   opacity: 0.7;
@@ -292,16 +292,15 @@ li {
 }
 
 
-.searchPost,
+
 .searchPost_btn {
-  margin: 5px;
-  padding: auto;
+  width: 30%;
+  padding: 10px;
   border: none;
   opacity: 0.7;
-  border-radius: 5px;
   background-color: #03AAD2;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* 掲示板　カテゴリー */
@@ -319,7 +318,8 @@ li {
   color: #FFF;
 }
 
-.category_btn {
+.category_btn,
+.category_btn2 {
   margin-left: 10px;
   font-size: 12px;
   border-radius: 5px;
