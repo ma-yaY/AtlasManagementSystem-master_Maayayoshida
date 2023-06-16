@@ -31,10 +31,9 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
-            $sub_category = Post::whereHas('post_sub_categories', function ($q){
-                $q->where('sub_category_id');
-                $request->category_word;
-            })->get();
+            $sub_category = Post::whereHas('subCategories', function ($q) {
+                $q->where('post_sub_categories.sub_category_id');
+                })->get();
             //中間テーブルを使った記述にする。wherehas
             $posts = Post::with('user', 'postComments')->get();
         }else if($request->like_posts){
@@ -45,8 +44,10 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
         }
+
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
+
 
     public function postDetail($post_id){
         $post = Post::with('user', 'postComments', 'subCategories')->findOrFail($post_id);

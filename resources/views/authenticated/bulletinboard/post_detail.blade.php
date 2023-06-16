@@ -4,10 +4,16 @@
   <div class="w-50 mt-5">
     <div class="m-3 detail_container">
       <div class="p-3">
+        @if($errors->first('post_title'))
+          <span class="error_message">{{ $errors->first('post_title') }}</span>
+        @endif
+        @if($errors->first('post_body'))
+          <span class="error_message">{{ $errors->first('post_body') }}</span>
+        @endif
         <div class="detail_inner_head">
-          <div>
-            @foreach($post->subCategories as $sub_Category)
-            <p><span>{{ $sub_Category->posts->id }}</span></p>
+          <div class="sub_categories left">
+            @foreach($post->subCategories as $sub_categories)
+                <p><span>{{ $sub_categories->sub_category}}</span></p>
             @endforeach
           </div>
           <div>
@@ -15,12 +21,6 @@
             <a class="btn btn-danger " href="{{ route('post.delete', ['id' => $post->id]) }}" onclick="return confirm('削除してよろしいですか？')">削除</a>
           </div>
         </div>
-          @if($errors->first('post_title'))
-            <span class="error_message">{{ $errors->first('post_title') }}</span>
-          @endif
-          @if($errors->first('post_body'))
-            <span class="error_message">{{ $errors->first('post_body') }}</span>
-          @endif
         <div class="contributor d-flex">
 
           <p>
