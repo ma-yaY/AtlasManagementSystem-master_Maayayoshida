@@ -11,7 +11,7 @@
 
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
-          {{$post->post_sub_categories}}
+
           @foreach($post->subCategories as $sub_category)
               <p><span>{{ $sub_category->sub_category}}</span></p>
           @endforeach
@@ -32,11 +32,13 @@
     </div>
     @endforeach
   </div>
-  <div class="other_area border w-25">
-    <div class="border m-4">
-      <div class=""><a href="{{ route('post.input') }}">投稿</a></div>
-      <div class="">
-        <input type="text" placeholder="キーワードを検索" name="keyword" form="postSearchRequest">
+  <div class="other_area w-25">
+    <div class=" m-4">
+      <div class="searchInput" style=" text-align:center; border:thin solid #03AAD2; opacity:0.7; border-radius:5px; background-color:#03AAD2;">
+        <a style="color:#FFF;" href="{{ route('post.input') }}">投稿</a>
+      </div>
+      <div class="searchPost">
+        <input type="text" placeholder="キーワードを検索" style=" border:thin solid #999999; opacity:0.7; background-color:#ECF1F6; border-radius: 5px;" name="keyword" form="postSearchRequest">
         <input type="submit" value="検索" form="postSearchRequest">
       </div>
       <input type="submit" name="like_posts" class="category_btn" value="いいねした投稿" form="postSearchRequest">

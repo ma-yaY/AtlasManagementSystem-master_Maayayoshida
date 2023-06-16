@@ -2,10 +2,10 @@
 
 @section('content')
 <p>ユーザー検索</p>
-<div class="search_content w-100 border d-flex">
+<div class="search_content w-100  d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
-    <div class="border one_person">
+    <div class=" one_person">
       <div>
         <span>ID : </span><span>{{ $user->id }}</span>
       </div>
@@ -52,10 +52,10 @@
     </div>
     @endforeach
   </div>
-  <div class="search_area w-25 border">
+  <div class="search_area w-25 ">
     <div class="">
       <div>
-        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
+        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" style=" border:none; background-color: #B2B2B2; border-radius: 5px;" form="userSearchRequest">
       </div>
       <div>
         <lavel>カテゴリ</lavel>

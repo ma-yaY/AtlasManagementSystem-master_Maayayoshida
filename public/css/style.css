@@ -4,7 +4,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #ECF1F6;
 }
 
 
@@ -44,7 +43,8 @@ li {
 /* サイドバー */
 .sidebar {
   width: 150px;
-  height: 100vh;
+  padding-bottom: 250px;
+  margin-bottom: -250px;
   background-color: #03AAD2;
   font-weight: bold;
 }
@@ -146,6 +146,7 @@ li {
 }
 
 /* 掲示板 */
+
 .sub_categories {
   display: none;
 }
@@ -163,6 +164,7 @@ li {
 
 .detail_container {
   background: #FFF;
+  border-radius: 10px;
 }
 
 .post_area {
@@ -224,15 +226,22 @@ li {
   justify-content: space-between;
 }
 
+
+
 /* 掲示板 コメント */
 .comment_container {
   background: #FFF;
+}
+
+.comment_container {
+  border-radius: 10px;
 }
 
 .comment_area p,
 .comment_area input {
   font-size: 12px;
   font-weight: bold;
+
 }
 
 .comment_area textarea {
@@ -248,11 +257,29 @@ li {
   font-size: 12px;
 }
 
+/*掲示板　検索*/
+.searchInput {
+  margin: 5px;
+  padding: 10px;
+
+}
+
+.searchPost input {
+
+  padding: 10px;
+  text-align: center;
+  border: none;
+  opacity: 0.7;
+  border-radius: 5px;
+  background-color: #03AAD2;
+}
+
 /* 掲示板　カテゴリー */
 .category_area {
   background: #FFF;
   border-radius: 10px;
 }
+
 
 .category_box {
   border-radius: 5px;
@@ -299,8 +326,8 @@ li {
 }
 
 .one_person {
-  width: 250px;
-  height: 250px;
+  width: 200px;
+  height: 200px;
   padding-left: 20px;
   margin: 0 0px 20px 20px;
   border-radius: 10px;

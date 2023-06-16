@@ -15,7 +15,7 @@
 <body>
   <form action="{{ route('registerPost') }}" method="POST">
     @csrf
-    <div class=" w-100 vh-100 d-flex" style="align-its:center; justify-content:center;">
+    <div class=" w-100 vh-100 d-flex" style="align-its:center; justify-content:center;  background-color: #ECF1F6;">
       <div class="RegisterBox vh-75 border p-3">
         <div class="register_form">
           <div class="register_forms d-flex mt-3" style="justify-content:space-between">
