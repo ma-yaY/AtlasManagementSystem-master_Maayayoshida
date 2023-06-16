@@ -21,15 +21,15 @@
   <div class="d-flex">
     <div class="sidebar">
       @section('sidebar')
-        <p><a href="{{ route('top.show') }}">トップ</a></p>
-        <p><a href="/logout">ログアウト</a></p>
-        <p><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
+        <p class="menu"><a href="{{ route('top.show') }}">トップ</a></p>
+        <p class="menu"><a href="/logout">ログアウト</a></p>
+        <p class="menu"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
         @can('admin')
-          <p><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-          <p><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
+          <p class="menu"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
+          <p class="menu"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
         @endcan
-        <p><a href="{{ route('post.show') }}">掲示板</a></p>
-        <p><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+        <p class="menu"><a href="{{ route('post.show') }}">掲示板</a></p>
+        <p class="menu"><a href="{{ route('user.show') }}">ユーザー検索</a></p>
       @show
     </div>
     <div class="main-container">

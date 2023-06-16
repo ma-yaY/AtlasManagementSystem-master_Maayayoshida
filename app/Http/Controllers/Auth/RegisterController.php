@@ -99,6 +99,7 @@ class RegisterController extends Controller
                 'password' => bcrypt($request->password)
             ]);
 
+            //中間テーブルに登録
             $user = User::findOrFail($user_get->id);
             $user->subjects()->attach($subjects);
             DB::commit();

@@ -4,6 +4,31 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  background-color: #ECF1F6;
+}
+
+
+
+
+.loginBox,
+.RegisterBox {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+
+}
+
+.loginForm,
+.register_form,
+.register_forms {
+  background-color: #FFFFFF;
+}
+
+.Register,
+.Login {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+
 }
 
 /* body */
@@ -30,11 +55,24 @@ li {
 
 .sidebar p a {
   color: #FFF;
+  background-color: #03AAD2;
 }
+
+.menu {
+  background-color: #03AAD2;
+}
+
 
 /* トップページ */
 .user_status {
   border-radius: 10px;
+  background: #FFF;
+  box-shadow: 10px 10px 15px -10px;
+
+}
+
+.user_status,
+.userRegistrant {
   background: #FFF;
 }
 
@@ -248,9 +286,11 @@ li {
   width: 800px;
   margin: 10px auto;
   height: 80vh;
-  overflow: scroll;
+
+  overflow-x: hidden;
+  overflow: auto;
   padding: 10px;
-  background: #FFF;
+  background: #ECF1F6;
   border-radius: 5px;
 }
 
@@ -261,6 +301,11 @@ li {
 .one_person {
   width: 250px;
   height: 250px;
+  padding-left: 20px;
+  margin: 0 0px 20px 20px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+  background: #FFFF;
 }
 
 .search_conditions span {

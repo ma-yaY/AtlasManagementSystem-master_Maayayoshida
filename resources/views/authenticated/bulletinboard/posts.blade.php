@@ -11,11 +11,11 @@
 
       <div class="post_bottom_area d-flex">
         <div class="d-flex post_status">
-          <div class="mr-5">
+          {{$post->post_sub_categories}}
           @foreach($post->subCategories as $sub_category)
               <p><span>{{ $sub_category->sub_category}}</span></p>
           @endforeach
-          </div>
+
           <div class="mr-5">
             <i class="fa fa-comment"></i><span class="">{{$post->postComments->count($post->id)}}</span>
           </div>

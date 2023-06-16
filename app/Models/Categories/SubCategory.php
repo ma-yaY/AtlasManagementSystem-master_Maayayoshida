@@ -23,7 +23,7 @@ class SubCategory extends Model
 
     //postとのリレーション
     public function posts(){
-        return $this->belongsToMany('App\Models\Posts\Post','post_sub_categories', 'sub_category_id', 'post_id')->withPivot('sub_category_id', 'id');
+        return $this->belongsToMany('App\Models\Posts\Post','post_sub_categories', 'sub_category_id', 'post_id');
     }
 
     //ユーザーの投稿とサブカテゴリーを繋ぐ処理

@@ -13,8 +13,8 @@
         @foreach($main_categories as $main_category)
         <option disabled label="{{ $main_category->main_category }}"></option>
         <!-- サブカテゴリー表示 -->
-        @foreach ($main_category->subCategory as $sub_category)
-        <option label="{{ $sub_category->sub_category }}" value="{{ $sub_category->id }}"></option>
+        @foreach ($main_category->subCategories as $sub_category)
+        <option label="{{ $sub_category->sub_category }}" name="post_sub_categories[]" value="{{ $sub_category->id }}"></option>
         @endforeach
         @endforeach
       </select>
@@ -34,7 +34,7 @@
       <textarea class="w-100" form="postCreate" name="post_body">{{ old('post_body') }}</textarea>
     </div>
     <div class="mt-3 text-right">
-      <input type="submit" class="btn btn-primary" value="投稿" form="postCreate">
+      <input type="submit" class="btn btn-primary"  value="投稿" form="postCreate">
     </div>
     <form action="{{ route('post.create') }}" method="post" id="postCreate">{{ csrf_field() }}</form>
   </div>
