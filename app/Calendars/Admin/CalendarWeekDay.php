@@ -37,16 +37,16 @@ class CalendarWeekDay{
 
       /*上記で定義したpart（部）より、usersにある予約情報をカウント*/
       /*web.phpにnameがあるのでリンクはroute*/
-      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" href="'.route('calendar.admin.detail',['id'=>$one_part->id, 'date'=>$one_part->setting_reserve, 'part'=>$one_part->setting_part]).'">1部</a>'.$one_part->users->count().'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" style="color:#03AAD2;" href="'.route('calendar.admin.detail',['id'=>$one_part->id, 'date'=>$one_part->setting_reserve, 'part'=>$one_part->setting_part]).'" >1部</a>'.$one_part->users->count().'</p>';
       /*パラメータの受け渡しができていない*/
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" href="'.route('calendar.admin.detail',['id'=>$two_part->id, 'date'=>$two_part->setting_reserve, 'part'=>$two_part->setting_part]).'">2部</a>'.$two_part->users->count().'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" style="color:#03AAD2;" href="'.route('calendar.admin.detail',['id'=>$two_part->id, 'date'=>$two_part->setting_reserve, 'part'=>$two_part->setting_part]).'">2部</a>'.$two_part->users->count().'</p>';
 
 
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" href="'.route('calendar.admin.detail',['id'=>$three_part->id, 'date'=>$three_part->setting_reserve, 'part'=>$three_part->setting_part]).'">3部</a>'.$three_part->users->count().'</p>';
+      $html[] = '<p class="day_part m-0 pt-1"><a class="day_part m-0 pt-1" style="color:#03AAD2;" href="'.route('calendar.admin.detail',['id'=>$three_part->id, 'date'=>$three_part->setting_reserve, 'part'=>$three_part->setting_part]).'">3部</a>'.$three_part->users->count().'</p>';
     }
     $html[] = '</div>';
 

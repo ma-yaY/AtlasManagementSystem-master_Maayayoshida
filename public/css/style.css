@@ -98,6 +98,10 @@ li {
   min-width: 100px;
 }
 
+.day_part a {
+  padding-right: 10px;
+}
+
 .day_part {
   color: #494949;
   font-size: 12px;

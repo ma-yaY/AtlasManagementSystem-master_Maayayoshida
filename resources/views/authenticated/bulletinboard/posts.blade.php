@@ -45,7 +45,7 @@
       <div>
         <p class="main_categories"><span class=".main_categories" category_id="{{ $category->id }}" >{{ $category->main_category}}</span></p>
 
-        <!--以下本当は、{{ $subCategory->sub_category($category->id)}}にしたい。質問する-->
+
         <div class="category_num{{$category->id}}" >
         @foreach($category->subCategories as $subCategory)
             <span class="category_num{{$subCategory->id}}" type="submit" name="category_word"  value="{{ $subCategory->sub_category}}" form="postSearchRequest"></span>
