@@ -146,10 +146,6 @@ li {
 }
 
 /* 掲示板 */
-
-
-
-
 .sub_categories p {
   color: #fff;
   font-size: 12px;
@@ -181,6 +177,11 @@ li {
 .post_area {
   background: #FFF;
   border-radius: 10px;
+}
+
+.post_area a {
+  color: #000;
+  font-weight: bold;
 }
 
 .post_status {
@@ -271,18 +272,22 @@ li {
 /*掲示板　検索*/
 .PostInput {
   margin: 5px;
-  padding: 10px;
+  padding: 5px;
   text-align: center;
   border: thin solid #03AAD2;
   opacity: 0.7;
-  border-radius: 5px;
+  border-radius: 10px;
   background-color: #03AAD2;
 
 }
 
+
+.searchPost {
+  margin: 0 5px;
+}
+
 .searchPostForm {
   width: 65%;
-  padding: 10px;
   border: thin solid #999999;
   opacity: 0.7;
   background-color: #ECF1F6;
@@ -294,11 +299,13 @@ li {
 
 
 .searchPost_btn {
-  width: 30%;
-  padding: 10px;
+  width: 35%;
+  padding: 5px 55px 5px 20px;
+  color: #fff;
   border: none;
   opacity: 0.7;
   background-color: #03AAD2;
+  border: thin solid #03AAD2;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -318,7 +325,35 @@ li {
   color: #FFF;
 }
 
-.category_btn,
+
+.searchPostForm {
+  width: 65%;
+  padding: 5px;
+  border: thin solid #999999;
+  opacity: 0.7;
+  background-color: #ECF1F6;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+
+}
+
+.LikeCategory_btn,
+.MyCategory_btn {
+  color: #FFF;
+  margin: 5px 0px 5px 5px;
+  width: 45%;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 12px;
+  padding: 10px;
+  border: none;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
 .category_btn2 {
   margin-left: 10px;
   font-size: 12px;
@@ -369,7 +404,8 @@ li {
   cursor: pointer;
 }
 
-.search_conditions_inner {
+.search_conditions_inner,
+.search_inner {
   display: none;
   background: #FFF;
 }

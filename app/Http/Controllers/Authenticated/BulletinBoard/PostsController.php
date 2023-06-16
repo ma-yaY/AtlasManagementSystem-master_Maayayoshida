@@ -32,7 +32,7 @@ class PostsController extends Controller
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
             $sub_category = Post::whereHas('subCategories', function ($q) use($request){
-                $q->where('sub_categories.id', '=', '%'.$request['category_word'].'%');
+                $q->where('post_sub_categories.sub_category_id', '=', '%'.$request['category_word'].'%');
                 })->get();
             //中間テーブルを使った記述にする。wherehas
             $posts = Post::with('user', 'postComments')->get();
