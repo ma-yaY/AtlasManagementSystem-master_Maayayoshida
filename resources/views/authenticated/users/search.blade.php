@@ -43,7 +43,7 @@
       </div>
       @if($user->role == 4)
         <div>
-          <span>選択科目 :</span>
+          <span >選択科目 :</span>
           @foreach($user->subjects as $subject)
             <span>{{ $subject->subject }}</span>
           @endforeach
@@ -55,24 +55,25 @@
   <div class="search_area w-25 ">
     <div class="">
       <div>
-        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" style=" border:none; background-color: #B2B2B2; border-radius: 5px;" form="userSearchRequest">
+        <span style="font-size: 18px;">検索</span><br>
+        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索"   form="userSearchRequest">
       </div>
       <div>
-        <lavel>カテゴリ</lavel>
-        <select form="userSearchRequest" name="category">
-          <option value="name">名前</option>
+        <span >カテゴリ</span><br>
+        <select class="select_Search" form="userSearchRequest" name="category">
+          <option  value="name">名前</option>
           <option value="id">社員ID</option>
         </select>
       </div>
       <div>
-        <label>並び替え</label>
-        <select name="updown" form="userSearchRequest">
+        <label>並び替え</label><br>
+        <select class="select_Search" name="updown" form="userSearchRequest">
           <option value="ASC">昇順</option>
           <option value="DESC">降順</option>
         </select>
       </div>
       <div class="">
-        <p class="m-0 search_conditions"><span>検索条件の追加</span></p>
+        <p class="search_conditions " style="border-bottom: thin solid #000;"><span >検索条件の追加</span></p>
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>
@@ -90,21 +91,18 @@
             </select>
           </div>
           <div class="selected_engineer">
-            <label>選択科目</label>
+            <label>選択科目</label><br>
             @foreach($subjects as $subject)
-              <div>
-              <span>{{ $subject->subject }}</span><input type="checkbox" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
-              </div>
-
+            <span>{{ $subject->subject }}</span><input type="checkbox" name="subject[]" value="{{ $subject->id }}" form="userSearchRequest">
             @endforeach
           </div>
         </div>
       </div>
       <div>
-        <input type="reset" value="リセット" form="userSearchRequest">
+        <input class="Search_btn" type="submit" name="search_btn" value="検索" form="userSearchRequest">
       </div>
-      <div>
-        <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+      <div class="SearchReset_btn">
+        <input type="reset" style="border:none; color:#03AAD2;" value="リセット" form="userSearchRequest">
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>

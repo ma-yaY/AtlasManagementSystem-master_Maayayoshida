@@ -348,7 +348,7 @@ li {
   width: 45%;
   text-align: center;
   opacity: 0.7;
-  font-size: 12px;
+  font-size: 15px;
   padding: 10px;
   border: none;
   border-top-left-radius: 10px;
@@ -404,6 +404,37 @@ li {
   background: #FFFF;
 }
 
+.free_word {
+  width: 80%;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  opacity: 0.7;
+  border: none;
+  border-radius: 10px;
+  background-color: #B2B2B2;
+
+}
+
+.search_area label {
+  padding-top: 10px;
+  margin: auto;
+}
+
+.select_Search,
+.engineer {
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  background-color: #B2B2B2;
+}
+
+.search_conditions {
+  width: 80%;
+}
+
 .search_conditions span {
   cursor: pointer;
 }
@@ -411,15 +442,36 @@ li {
 .search_conditions_inner,
 .search_inner {
   display: none;
-  background: #FFF;
+  background: #ECF1F6;
+
 }
 
 .subject_edit_btn {
   font-size: 12px;
   color: #0000FF;
   cursor: pointer;
+  background-color: #B2B2B2;
 }
 
 .subject_inner {
   display: none;
+}
+
+
+.Search_btn {
+  width: 80%;
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  border: thin solid #03AAD2;
+  opacity: 0.7;
+  border-radius: 10px;
+  background-color: #03AAD2;
+}
+
+.SearchReset_btn {
+  margin: 5px;
+  width: 80%;
+  text-align: center;
+  font-size: 16px;
 }

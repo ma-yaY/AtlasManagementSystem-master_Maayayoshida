@@ -31,10 +31,13 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
-            $sub_category = Post::whereHas('subCategories', function ($q) use($request){
-                $q->where('post_sub_categories.sub_category_id', '=', '%'.$request['category_word'].'%');
+
+            $sub_category = Post::with('subCategories')
+                    ->when(!empty($request['category_word']), function ($q) use($request){
+                    $q->whereHas('subCategories', function ($q) use($request){
+                    $q->where('$posts', '=', '%'.$request['category_word'].'%');});
                 })->get();
-            //中間テーブルを使った記述にする。wherehas
+
             $posts = Post::with('user', 'postComments')->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
