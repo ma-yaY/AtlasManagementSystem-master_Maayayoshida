@@ -31,14 +31,11 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
+            $posts = Post::with('user', 'postComments')
+            ->whereHas('subCategories', function ($q) use($request){
+                $q->where('sub_category', 'LIKE', '%'.$request['category_word'].'%');
+            })->get();
 
-            $sub_category = Post::with('subCategories')
-                    ->when(!empty($request['category_word']), function ($q) use($request){
-                    $q->whereHas('subCategories', function ($q) use($request){
-                    $q->where('$posts', '=', '%'.$request['category_word'].'%');});
-                })->get();
-
-            $posts = Post::with('user', 'postComments')->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             $posts = Post::with('user', 'postComments')
@@ -71,9 +68,8 @@ class PostsController extends Controller
             'post' => $request->post_body
         ]);
 
-         $post_sub_categories = Post::findOrFail($post->id);
-         $post_sub_categories->subCategories()->attach($post_sub_categories);
-
+        $post->subCategories()->attach($request->sub_category_id);
+        //中間テーブルpost_sub_categoriesのpost_idとsub_category_idにpostsのidとsub_categoriesのidが入っていない。
         return redirect()->route('post.show');
     }
 
