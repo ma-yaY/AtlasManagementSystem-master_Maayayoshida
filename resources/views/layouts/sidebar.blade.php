@@ -21,15 +21,15 @@
   <div class="d-flex">
     <div class="sidebar">
       @section('sidebar')
-        <p class="menu"><a href="{{ route('top.show') }}">トップ</a></p>
-        <p class="menu"><a href="/logout">ログアウト</a></p>
-        <p class="menu"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}">スクール予約</a></p>
+        <p class="menu"><a href="{{ route('top.show') }}"><img src="{{ asset('images/MyHome.png') }}">マイページ</a></p>
+        <p class="menu"><a href="/logout"><img src="{{ asset('images/logout.png') }}">ログアウト</a></p>
+        <p class="menu"><a href="{{ route('calendar.general.show',['user_id' => Auth::id()]) }}"><img src="{{ asset('images/reserve.png') }}">スクール予約</a></p>
         @can('admin')
-          <p class="menu"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}">スクール予約確認</a></p>
-          <p class="menu"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}">スクール枠登録</a></p>
+          <p class="menu"><a href="{{ route('calendar.admin.show',['user_id' => Auth::id()]) }}"><img src="{{ asset('images/confirmation.png') }}">スクール予約確認</a></p>
+          <p class="menu"><a href="{{ route('calendar.admin.setting',['user_id' => Auth::id()]) }}"><img src="{{ asset('images/calendar.png') }}">スクール枠登録</a></p>
         @endcan
-        <p class="menu"><a href="{{ route('post.show') }}">掲示板</a></p>
-        <p class="menu"><a href="{{ route('user.show') }}">ユーザー検索</a></p>
+        <p class="menu"><a href="{{ route('post.show') }}"><img src="{{ asset('images/Bulletin-board.png') }}">掲示板</a></p>
+        <p class="menu"><a href="{{ route('user.show') }}"><img src="{{ asset('images/searchUser.png') }}">ユーザー検索</a></p>
       @show
     </div>
     <div class="main-container">

@@ -15,7 +15,10 @@
 <body>
   <form action="{{ route('loginPost') }}" method="POST">
     @csrf
-    <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;  background-color: #ECF1F6;">
+    <div class="loginView w-100 vh-100 d-flex" style="align-items:center; justify-content:center;  background-color: #ECF1F6;">
+      <div class="login_image">
+        <img src="{{ asset('images/atlas-black.png') }}" width="70%" height="70%">
+      </div>
       <div class="loginBox border vh-50 w-25">
         <div class="loginForm w-75 m-auto pt-5">
           <label class="loginForm d-block m-0" style="font-size:13px;">メールアドレス</label>
