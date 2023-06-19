@@ -166,6 +166,38 @@ li {
   width: 60%;
 }
 
+
+
+/* 予約確認ー＞予約詳細*/
+
+.reserve_user {
+  position: relative;
+}
+
+
+
+.reserve_userBox {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+}
+
+.reserve_users {
+
+  width: 100%;
+  background-color: #03AAD2;
+}
+
+.text-centers {
+  background-color: #FFFFFF;
+}
+
+.text-centers:nth-child(odd) {
+  background-color: #ADD8E6;
+}
+
+
+
 /* 掲示板 */
 .sub_categories p {
   color: #fff;
@@ -330,6 +362,37 @@ li {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
+
+.Categories {
+  width: 0px;
+  margin-left: 70%;
+  display: block;
+  color: #000;
+  cursor: pointer;
+}
+
+.Categories:after {
+  width: 0px;
+  content: '^';
+  font-size: 30px;
+  font-weight: 300;
+  color: #000;
+  margin-left: 40px;
+  cursor: pointer;
+}
+
+#ac-box:checked:after {
+  transition: all 0.5s;
+}
+
+#ac-box:checked:after {
+  transform: rotateX(180deg);
+  transition: 0.60s;
+  /* 開閉スピードの設定 */
+  position: absolute;
+}
+
 
 /* 掲示板　カテゴリー */
 .category_area {

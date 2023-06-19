@@ -42,15 +42,15 @@
       <input type="submit" name="like_posts" class="LikeCategory_btn" style="background: #e83e8c; " value="いいねした投稿" form="postSearchRequest"><input type="submit" name="my_posts" class="MyCategory_btn" style="background: #ffc107; " value="自分の投稿" form="postSearchRequest">
 
       @foreach($categories as $category)
-      <div class="main_categories" category_id="{{ $category->id }}">
-        <p><span style="border-bottom: thin solid #000;" >{{ $category->main_category}}<img src="{{ asset('images/arrow_up.png') }}"></span></p>
-        <div class="category_num{{$category->id}}" style="display: none;">
+      <input type="checkbox" class="main_categories Categories" id="ac-box" category_id="{{ $category->id }} ">
+        <p style="border-bottom: thin solid #000;"><span >{{ $category->main_category}}</span></p>
+        <div class="category_num{{$category->id}} CategoriesInner" for="ac-box" style="display: none;">
           @foreach($category->subCategories as $subCategory)
-            <li><input type="submit" name="category_word" class="category_btn" style="border: none; border-bottom: thin solid #000;" value="{{ $subCategory->sub_category }}" form="postSearchRequest"></li>
+            <li style="border: none; border-bottom: thin solid #000;"><input type="submit" name="category_word" class="category_btn" style="border: none;" value="{{ $subCategory->sub_category }}" form="postSearchRequest"></li>
             <span type="submit" name="category_word"  value="{{ $subCategory->sub_category}}" form="postSearchRequest"></span>
           @endforeach
         </div>
-      </div>
+      </input>
       @endforeach
     </div>
   </div>
