@@ -12,13 +12,14 @@
 
 .login_image {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 39%;
 }
 
 .loginBox {
   position: absolute;
-  bottom: 20%;
+  padding: 0px 0px 10px 0px;
+  top: 35%;
   left: 35%;
   background-color: #FFFFFF;
   border-radius: 10px;

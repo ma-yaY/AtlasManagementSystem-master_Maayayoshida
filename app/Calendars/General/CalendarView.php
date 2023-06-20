@@ -17,8 +17,8 @@ class CalendarView{
 
   function render(){
     $html = [];
-    $html[] = '<div class="calendar text-center">';
-    $html[] = '<table class="table">';
+    $html[] = '<div class="calendar text-center table m-auto border ">';
+    $html[] = '<table class="table m-auto border adjust-table">';
     $html[] = '<thead>';
     $html[] = '<tr>';
     $html[] = '<th>月</th>';
@@ -46,7 +46,7 @@ class CalendarView{
           $html[] = '<td class="past-day border" >';
           /*$html[] = '<td class="calendar-td">';*/
         }else{
-          $html[] = '<td class="calendar-td '.$day->getClassName().'">';
+          $html[] = '<td class="calendar-td '.$day->getClassName().' border ">';
         }
         $html[] = $day->render();
 

@@ -67,10 +67,9 @@ class PostsController extends Controller
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
-        /*$subCategoryIds = $request->sub_category_id; // 選択されたサブカテゴリーのIDの配列
-        $post->subCategories()->attach($subCategory);*/
+
         $post_sub_categories = Post::findOrFail($post->id);
-        $post_sub_categories->subCategories()->attach($post_sub_categories);
+        $post_sub_categories->subCategories()->attach($sub_category_id);
         return redirect()->route('post.show');
     }
 
