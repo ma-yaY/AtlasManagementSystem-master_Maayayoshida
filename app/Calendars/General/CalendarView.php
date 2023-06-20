@@ -17,17 +17,17 @@ class CalendarView{
 
   function render(){
     $html = [];
-    $html[] = '<div class="calendar text-center table m-auto border ">';
-    $html[] = '<table class="table m-auto border adjust-table">';
+    $html[] = '<div class="calendar text-center">';
+    $html[] = '<table class="User_table">';
     $html[] = '<thead>';
     $html[] = '<tr>';
-    $html[] = '<th>月</th>';
-    $html[] = '<th>火</th>';
-    $html[] = '<th>水</th>';
-    $html[] = '<th>木</th>';
-    $html[] = '<th>金</th>';
-    $html[] = '<th>土</th>';
-    $html[] = '<th>日</th>';
+    $html[] = '<th class="border">月</th>';
+    $html[] = '<th class="border">火</th>';
+    $html[] = '<th class="border">水</th>';
+    $html[] = '<th class="border">木</th>';
+    $html[] = '<th class="border">金</th>';
+    $html[] = '<th class="border">土</th>';
+    $html[] = '<th class="border">日</th>';
     $html[] = '</tr>';
     $html[] = '</thead>';
     $html[] = '<tbody>';

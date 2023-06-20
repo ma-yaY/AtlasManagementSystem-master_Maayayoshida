@@ -62,7 +62,7 @@ li {
 .sidebar {
   width: 200px;
   padding-bottom: 250px;
-  margin-bottom: -250px;
+  margin-bottom: -300px;
   background-color: #03AAD2;
   font-weight: bold;
 }
@@ -93,6 +93,45 @@ li {
 .userRegistrant {
   background: #FFF;
 }
+
+
+/* カレンダー */
+.calenders {
+  position: relative;
+  width: 100%;
+}
+
+.confirmation,
+.resarve_settings,
+.user_calender {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px -10px;
+}
+
+
+
+.confirmation,
+.resarve_settings,
+.user_calender {
+  margin: 30px 60px 0px 60px;
+  padding: 30px 50px;
+
+}
+
+
+.User_table {
+  display: block;
+}
+
+
+
+
+
+
+
+
+
 
 /* スクール予約関連 */
 .day-blank {

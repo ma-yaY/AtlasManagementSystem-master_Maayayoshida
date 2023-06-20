@@ -68,8 +68,9 @@ class PostsController extends Controller
             'post' => $request->post_body
         ]);
 
+        $Sub_Category = $request->post_category_id;
         $post_sub_categories = Post::findOrFail($post->id);
-        $post_sub_categories->subCategories()->attach($sub_category_id);
+        $post_sub_categories->subCategories()->attach($Sub_Category);
         return redirect()->route('post.show');
     }
 

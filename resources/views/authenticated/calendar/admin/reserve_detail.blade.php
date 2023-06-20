@@ -1,6 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
+<!--当日予約ユーザー-->
 <div class="reserve_user vh-100 " style="align-items:center; justify-content:center;">
   <div class="reserve_userArea w-75 m-auto pt-5" >
     <p ><span>{{$date}}日</span><span class="ml-3">{{$part}}部</span></p>

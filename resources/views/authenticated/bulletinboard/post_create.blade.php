@@ -14,7 +14,7 @@
         <option disabled label="{{ $main_category->main_category }}"></option>
         <!-- サブカテゴリー表示 -->
         @foreach ($main_category->subCategories as $sub_category)
-        <option label="{{ $sub_category->sub_category }}" name="post_sub_categories[]" value="{{ $sub_category->id }}"></option>
+        <option label="{{ $sub_category->sub_category }}" value="{{ $sub_category->id }}"></option>
         @endforeach
         @endforeach
       </select>
