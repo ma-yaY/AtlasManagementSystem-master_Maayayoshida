@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('content')
-<p>ユーザー検索</p>
+<!--ユーザー検索-->
 <div class="search_content w-100  d-flex">
   <div class="reserve_users_area">
     @foreach($users as $user)
@@ -73,16 +73,16 @@
         </select>
       </div>
       <div class="">
-        <p class="search_conditions " style="border-bottom: thin solid #000;"><span >検索条件の追加</span></p>
-        <div class="search_conditions_inner">
+        <input type="checkbox" class="search_conditions" style="border-bottom: thin solid #000;" id="ac-box"><span >検索条件の追加</span></input>
+        <div class="search_conditions_inner" for="ac-box">
           <div>
-            <label>性別</label>
+            <label>性別</label><br>
             <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
           </div>
           <div>
             <label>権限</label>
-            <select name="role" form="userSearchRequest"  class="engineer">
+            <select name="role" form="userSearchRequest" class="engineer">
               <option selected disabled value="0">----</option>
               <option value="1">教師(国語)</option>
               <option value="2">教師(数学)</option>
@@ -102,8 +102,16 @@
         <input class="Search_btn" type="submit" name="search_btn" value="検索" form="userSearchRequest">
       </div>
       <div class="SearchReset_btn">
-        <input type="reset" style="border:none; color:#03AAD2;" value="リセット" form="userSearchRequest">
+        <input type="reset" style="border:none; color:#03AAD2; background: #ECF1F6;" value="リセット" form="userSearchRequest">
       </div>
+      <script>
+        $(document).ready(function(){
+        $(".SearchReset_btn input[type='reset']").click(function(e){
+          e.preventDefault();
+          $("select[name='role']").prop('selectedIndex',0);
+        });
+        });
+      </script>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>
   </div>
