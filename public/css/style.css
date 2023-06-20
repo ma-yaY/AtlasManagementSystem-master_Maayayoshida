@@ -112,17 +112,26 @@ li {
 
 
 .confirmation,
-.resarve_settings,
-.user_calender {
+.resarve_settings {
   margin: 30px 60px 0px 60px;
   padding: 30px 50px;
 
 }
 
 
-.User_table {
-  display: block;
+.user_calender {
+  margin: 30px 60px 0px 60px;
+  padding: 30px 50px;
+
 }
+
+.User_table {
+  width: 100%;
+  margin: auto;
+}
+
+
+
 
 
 
@@ -201,7 +210,7 @@ li {
   left: 50%;
   padding: 40px;
   position: absolute;
-  top: 50%;
+  top: 30%;
   transform: translate(-50%, -50%);
   width: 60%;
 }
