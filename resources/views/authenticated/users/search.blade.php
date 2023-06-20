@@ -82,8 +82,8 @@
           </div>
           <div>
             <label>権限</label>
-            <select name="role" form="userSearchRequest" class="engineer">
-              <option selected disabled>----</option>
+            <select name="role" form="userSearchRequest"  class="engineer">
+              <option selected disabled value="0">----</option>
               <option value="1">教師(国語)</option>
               <option value="2">教師(数学)</option>
               <option value="3">教師(英語)</option>
